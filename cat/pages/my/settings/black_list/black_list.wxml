@@ -1,0 +1,54 @@
+<!-- 黑名单设置页面 -->
+<view class="container">
+    <view class="lists">
+        <view class="list">
+            <view class="list-left"><image src="../../../image/avatar.png" mode="widthFix"></image></view>
+            <view class="list-right">
+                <text class="user-name">封號→消失</text>
+                <view class="user-level">
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                </view>
+                <view class="delete" catchtap="deleteClick"><image src="../../../image/delete.png" mode="widthFix"></image></view>
+                <view class="info">
+                    <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                    <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="list">
+            <view class="list-left"><image src="../../../image/avatar.png" mode="widthFix"></image></view>
+            <view class="list-right">
+                <text class="user-name">封號→消失</text>
+                <view class="user-level">
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                </view>
+                <view class="delete" catchtap="deleteClick"><image src="../../../image/delete.png" mode="widthFix"></image></view>
+                <view class="info">
+                    <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                    <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                </view>
+            </view>
+        </view>
+        <view class="list">
+            <view class="list-left"><image src="../../../image/avatar.png" mode="widthFix"></image></view>
+            <view class="list-right">
+                <text class="user-name">封號→消失</text>
+                <view class="user-level">
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                    <image mode="widthFix" src="../../../image/maozhao.png"></image>
+                </view>
+                <view class="delete" catchtap="deleteClick"><image src="../../../image/delete.png" mode="widthFix"></image></view>
+                <view class="info">
+                    <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                    <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

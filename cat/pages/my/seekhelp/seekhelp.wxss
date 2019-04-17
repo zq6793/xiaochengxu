@@ -1,0 +1,6 @@
+/* fileName: pages/my/seekhelp/seekhelp.wxss */
+@import '../../../public/style.wxss';
+
+/* 求助 */
+.list-down-1{width: 100%;}
+.list-down-1 text{line-height: 30px; font-size: 15px; margin-right: 20px;  color: #7B7B7B;}

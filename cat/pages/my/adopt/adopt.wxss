@@ -1,0 +1,10 @@
+/* fileName: pages/adopt/adopt.wxss */
+@import '../../../public/style.wxss';
+
+
+.list-down-1{width: 100%;}
+.list-down-1 text{line-height: 30px; font-size: 15px; margin-right: 20px;  color: #7B7B7B;}
+.list-down-2{width: 100%;}
+.list-down-2 view{height: 30px; line-height: 30px; display: inline-block; margin-right: 20px; vertical-align: middle;}
+.list-down-2 view image{width: 17px; height: 17px; margin: 0 5px 0 0; display: inline-block; vertical-align: middle;}
+.list-down-2 view text{line-height: 30px; font-size: 15px; color: #909090;}

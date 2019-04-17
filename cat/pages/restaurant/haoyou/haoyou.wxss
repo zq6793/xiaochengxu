@@ -1,0 +1,19 @@
+/* pages/restaurant/haoyou/haoyou.wxss */
+@import '../../../public/style.wxss';
+.nav{height: 44px; display: flex; justify-content: space-around; top: 0;}
+.nav .nav-item{line-height: 44px; padding: 0 10px;}
+.nav .nav-item.active::after{width: -webkit-calc(100% - 10px); width: calc(100% - 10px); left: 5px;}
+
+.page{width: 100%; padding-top: 0px;}
+
+.list-top{position: relative;}
+.list-top .badge{width: auto; min-width: 18px; height: 18px; line-height: 16px; box-sizing: border-box; padding: 0 5px; text-align: center; display: inline-block; border-radius: 20px; background: #FF9204; color: #FFF; font-size: 12px; position: absolute; bottom: 10px; left: 45px;} 
+
+.user-level image{top: 0;}
+.user-name{max-width: -webkit-calc(100% - 90px); max-width: calc(100% - 90px); text-indent: 10px;  text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.user-name.active{color: #FF9204;}
+
+.list-down{width: 100%; padding: 0 10px 10px 10px;}
+.list-down view{width: 100%; line-height: 25px; margin: 0 0 5px 0; font-size: 14px; color: #7B7B7B;}
+.list-down text{line-height: 25px; font-size: 15px; color: #7B7B7B; display: inline-block; margin: 0 10px 0 0;}
+.list-down view text{font-size: 16px; margin: 0 5px 0 5px; color: #7B7B7B;}

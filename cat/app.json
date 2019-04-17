@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/index/index",
+    "pages/restaurant/restaurant",
+    "pages/recipes/recipes",
+    "pages/meow_meow/meow_meow",
+    "pages/my/my",
+    "pages/common/user_detail/user_detail",
+    "pages/common/address/address",
+    "pages/common/search/search",
+    "pages/common/article_detail/article_detail",
+    "pages/common/publish_articles/publish_articles",
+    "pages/common/lottery/lottery",
+    "pages/common/article_list/article_list",
+    "pages/common/selectCity/selectCity",
+    "pages/common/invite_cat_participate/invite_cat_participate",
+    "pages/index/niuren/niuren",
+    "pages/restaurant/restaurant_detail/restaurant_detail",
+    "pages/restaurant/special_detail/special_detail",
+    "pages/restaurant/article_detail/article_detail",
+    "pages/restaurant/seekhelp_detail/seekhelp_detail",
+    "pages/restaurant/seekhelp_huida/seekhelp_huida",
+    "pages/restaurant/niuren/niuren",
+    "pages/restaurant/niutie/niutie",
+    "pages/restaurant/haoyou/haoyou",
+    "pages/recipes/seekhelp_detail/seekhelp_detail",
+    "pages/recipes/seekhelp_huida/seekhelp_huida",
+    "pages/recipes/niuren/niuren",
+    "pages/recipes/niutie/niutie",
+    "pages/recipes/haoyou/haoyou",
+    "pages/meow_meow/waner_canyu/waner_canyu",
+    "pages/my/goodfriend/goodfriend",
+    "pages/my/seekhelp/seekhelp",
+    "pages/my/drafts/drafts",
+    "pages/my/fans/fans",
+    "pages/my/messages/messages",
+    "pages/my/collection/collection",
+    "pages/my/adopt/adopt",
+    "pages/my/adopt/adopt_detail/adopt_detail",
+    "pages/my/helpforhappy/helpforhappy",
+    "pages/my/edit_recommend/edit_recommend",
+    "pages/my/settings/personal_data/personal_data",
+    "pages/my/settings/home/home",
+    "pages/my/settings/black_list/black_list",
+    "pages/my/feedback/feedback",
+    "pages/restaurant/add_tese/add_tese"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#FF9204",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/image/footer/index.png",
+        "selectedIconPath": "pages/image/footer/index_active.png"
+      },
+      {
+        "pagePath": "pages/restaurant/restaurant",
+        "text": "餐厅",
+        "iconPath": "pages/image/footer/cantin.png",
+        "selectedIconPath": "pages/image/footer/cantin_active.png"
+      },
+      {
+        "pagePath": "pages/recipes/recipes",
+        "text": "菜谱",
+        "iconPath": "pages/image/footer/caipu.png",
+        "selectedIconPath": "pages/image/footer/caipu_active.png"
+      },
+      {
+        "pagePath": "pages/meow_meow/meow_meow",
+        "text": "喵喵",
+        "iconPath": "pages/image/footer/miaomiao.png",
+        "selectedIconPath": "pages/image/footer/miaomiao_active.png"
+      }
+    ],
+    "position": "bottom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

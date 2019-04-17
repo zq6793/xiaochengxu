@@ -1,0 +1,55 @@
+/* fileName: pages/common/publish_articles/publish_articles.wxss */
+@import '../../../public/style.wxss';
+
+.nav{height: 44px; display: flex; justify-content: space-around; top: 0; z-index: 2;}
+.nav .nav-item{line-height: 44px; padding: 0 10px;}
+.nav .nav-item.active::after{width: -webkit-calc(100% - 10px); width: calc(100% - 10px); left: 5px;}
+
+.page{width: 100%; padding: 20px; box-sizing: border-box;}
+
+.page textarea{position: relative; z-index: 0 !important;}
+.page .page-title{width: 100%; line-break: 30px; margin: 0 0 15px 0; font-size: 16px; color: #333;}
+.page .input-item{width: 100%; height: 50px; border-radius: 5px; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; margin: 0 0 20px 0; background: #FFF; position: relative;}
+.page .input-item input{width: 100%; height: 100%; line-height: 50px; padding: 0 10px; box-sizing: border-box; font-size: 15px; color: #646464; z-index: 1;}
+.page .input-item image{width: 16px; height: 16px; position: absolute; top: 17px; right: 5px;}
+.page .editor-menu{width: 100%; margin: 0 0 20px 0; padding: 10px; border-radius: 5px; box-sizing: border-box; background: #FFF; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; position: relative;}
+.page .editor-menu .textimg-items{width: 100%;}
+.page .editor-menu .textimg-item{width: 100%; position: relative; z-index: 1;}
+.page .editor-menu .textimg-item .textarea-view{width: 100%; position: relative;}
+.page .editor-menu .textimg-item .textarea-view textarea{width: 100%; min-height: 30px; margin: 0 0 10px 0; font-size: 15px; line-height: 25px; color: #646464; z-index: 1;}
+.page .editor-menu .textimg-item .image-view{width: 100%; position: relative;}
+.page .editor-menu .textimg-item .image-view image{width: 100%; border-radius: 5px; margin: 0 0 10px 0; position: relative;}
+.page .editor-menu .textimg-item .image-view .delete-btn{width: 20px; height: 20px; background: rgba(0,0,0,.6); border-top-right-radius: 5px; display: inline-block; position: absolute; top: 0; right: 0;}
+.page .editor-menu .textimg-item .image-view .delete-btn image{width: 15px; height: 15px; margin: 2.5px;}
+.page .editor-main{width: 100%;}
+.page .editor-main textarea{width: 100%; min-height: 60px; margin: 0 0 10px 0; font-size: 15px; line-height: 25px; color: #646464;}
+.page .editor-main .btns{width: 100%;}
+.page .editor-main .btns .btn{width: 25px; height: 25px; border-radius: 50%; margin: 0 15px 0 0; display: inline-block; vertical-align: top;}
+.page .editor-main .btns image{width: 100%; height: 100%; border-radius: 50%;}
+.page .banner-menu{width: 100%; height: 120px; margin: 0 0 50px 0; border-radius: 5px; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; background: #FFF; position: relative;}
+.page .banner-imgadd{width: 100%; height: 100%; text-align: center; position: absolute; top: 0; left: 0;}
+.page .banner-imgadd image{width: 50px; height: 50px; position: absolute; top: -webkit-calc((100% - 50px) / 2); top: calc((100% - 50px) / 2); left: -webkit-calc((100% - 50px) / 2); left: calc((100% - 50px) / 2);}
+.page .banner-imgview{width: 100%; height: 100%;  border-radius: 5px; position: absolute; top: 0; left: 0; overflow: hidden;}
+.page .banner-imgview image{width: 100%; border-radius: 5px;}
+.page .banner-tip{width: 100%; line-height: 40px; font-size: 14px; color: #909090; text-align: center; position: absolute; bottom: -40px; left: 0;}
+.page .price{width: 100%; height: 50px; font-size: 0; margin: 0 0 20px 0;}
+.page .price input{width: -webkit-calc(100% - 30px); width: calc(100% - 30px); height: 100%; font-size: 15px; color: #646464; padding: 0 10px; box-sizing: border-box; border-radius: 5px ; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; background: #FFF; display: inline-block; vertical-align: top;}
+.page .price text{width: 30px; height: 100%; line-height: 50px; text-align: right; display: inline-block; vertical-align: top; font-size: 15px; color: #333;}
+.page .informations{width: 100%;}
+.page .information-title{width: 100%; line-height: 30px; font-size: 16px; color: #333; margin: 0 0 5px 0;}
+.page .map-menu{width: 100%; height: 120px; margin: 0 0 20px 0; border-radius: 5px; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; background: #FFF; position: relative;}
+.page .map-menu .map-btn{width: 100%; height: 100%; line-height: 120px; font-size: 14px; color: #909090; text-align: center; position: absolute; top: 0; left: 0;}
+
+.page .type-btns{width: 100%; font-size: 0; margin: 0 0 20px 0;}
+.page .type-btn{width: -webkit-calc((100% - 40px) / 3); width: calc((100% - 40px) / 3); height: 40px; line-height: 40px; text-align: center; border-radius: 3px; font-size: 15px; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; background: #FFF; color: #646464; display: inline-block; vertical-align: top; margin: 0 20px 0 0;}
+.page .type-btns .type-btn:last-child{margin: 0;}
+.page .type-btns .type-btn.active{color: #FF9204; box-shadow: 0 0 1px rgb(255, 115, 1) inset; overflow: hidden; position: relative;}
+.page .type-btns .type-btn.active::after{content: ''; width: 30px; height: 30px; border-bottom-right-radius: 5px; background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEEAAABACAYAAABFqxrgAAACaElEQVR4Xu3avWoUYRTG8f+ZdyAK9mLrPaRZMCshN6Ck0ko70Zh4A4I3ILqglSJoExTtFAWxFEQQwcbCVhAsJCGihe8c2XWdj52ZTWYSyHycaYcpzm/Pec7Mywp2IWaAIYybwDrBEP6FgXWCIVgnxIvRxsHGwcbBxiH9pmyZYJlgmWCZYJkwc35gwWjBaMFowWjBaMGYP1q27WDbwbaDbQfbDrYdbDtkBPQBR+QCv3u7InXEAuqey7pf6SXCBIDwJapLsu5d7xBiADiNatQ7hAzAOB36hpAD6BtCIUCfEEoB+oIwF6APCHqTo4ThC8ZboOzqcjBOAFz4GmEw9995XUXYM0BXx6ESQBcRKgN0DaEWQJcQagN0BWFfAF1AqA6g3xC/SuQeInJysjrbvCJrAHzH+YFc5ove4jji3k4g2opQC0D8kqzx+f+Lk46C6xDcaCVCDYAfiB/MAFyC4G4rx6EmwFDW+JTqgASgbZlwMADuIsj97HFzS47X9A7H+BO+2vVjKK5OtxB/KtsBYwDugWTPVNsQjFOANwiLSY26ifAU2ARx2a9E3SLwy3KFD8kIlAC0YRxKAa76cyKo3nZnEJ4kELpD4IczAOeBR7kOiIUaPA4lABHOL2aKjCH4ReRXZIN3qQ6YD9DkTigESGZhG++Hco2PqWLPEvmvlQGaijAfIC57e/qrvy86NdKRWwUel45A+qGmBePeAGKIHSK/LBtkIKYABYFZcsjWJIRqAMUQlQGaNA71ALIQOHcC5Vl+ZZZ0QJO2w/4AppWo/gQWEAl3KTl/+7DH4UAAKlc988BhIjQCIJUJfwFRDoFQGqpGHQAAAABJRU5ErkJggg==) no-repeat; background-size: 100%;  position: absolute; bottom: -1px; right: -1px;}
+.page .date-choose{width: 100%; font-size: 0; margin: 0 0 20px 0;}
+.page .date-btn{width: -webkit-calc((100% - 40px) / 2); width: calc((100% - 40px) / 2); height: 40px; border-radius: 5px; box-shadow: 0 0 1px rgba(100,100,100,.6) inset; background: #FFF; display: inline-block; vertical-align: top;}
+.page .date-btn input{width: 100%; height: 100%; font-size: 14px; padding: 0 10px; box-sizing: border-box; position: relative; z-index: 1;}
+.page .date-choose text{width: 40px; height: 40px; line-height: 40px; display: inline-block; font-size: 15px; color: #646464; text-align: center; vertical-align: top;}
+
+.down-btns{width: 100%; font-size: 0;}
+.submit{width: -webkit-calc(100% - 40% - 22px); width: calc(100% - 40% - 22px); height: 44px; line-height: 44px; text-align: center; font-size: 16px; color: #FFF; border-radius: 5px; display: inline-block; vertical-align: middle; margin: 0 20px 0 0;}
+.save-draft{width: 40%; height: 42px; line-height: 42px; text-align: center; font-size: 16px; color: #333; border-radius: 5px; border: 1px solid #909090; display: inline-block; vertical-align: middle;}

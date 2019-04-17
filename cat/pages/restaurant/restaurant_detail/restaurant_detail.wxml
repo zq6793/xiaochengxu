@@ -1,0 +1,255 @@
+<!--pages/restaurant/restaurant_detail/restaurant_detail.wxml-->
+<!-- 餐厅详情 -->
+<view class="container">
+    <!-- 广告 轮播图 -->
+    <view class="banner-menu">
+        <swiper class="banner" bindchange="swiperChange" display-multiple-items='1' indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" style="height:{{banner.height}}px;">
+            <block wx:for="{{banner.img}}" wx:key="{{banner.img}}">
+                <swiper-item class="swiper-item">
+                    <view class='swiper-slide'>
+                        <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                    </view>
+                </swiper-item>
+            </block>            
+        </swiper> 
+        <view class="imageCount">{{banner.current+1}}/{{banner.img.length}}</view>
+    </view>
+    <view class="content-top">
+        <view class="tongbao">
+            <view class="tongbao-left"><image src="../../image/warning.png" mode="widthFix"></image></view>
+            <view class="tongbao-right">通报：该餐馆已被举报疑似雇佣水军作弊，请自行甄别各信息可信程度！</view>
+        </view>
+        <view class="restaurant-infos">
+            <view class="infos-left"><image src="../../image/shop_img.png"></image></view>
+            <view class="infos-right">
+                <view class="infos-title">雷记水盆羊肉</view>
+                <view class="infos-biaoqian">
+                    <text>振兴路</text><text>水盆羊肉</text><text>微辣</text><text>人均￥35</text>
+                </view>
+                <view class="infos-biaoqian">
+                    <text>312只馋猫推荐（含24好友）</text><text>2190赞同（含4好友）</text><text>87反对（含1好友）</text>
+                </view>                
+            </view>
+        </view>
+    </view>
+    <view class="content-middle">
+        <view class="middle-lists">
+            <!-- 推荐菜 -->
+            <view class="middle-list tuijiancai">
+                <view class="middle-list-title">推荐菜 <text class="middle-list-title-right">更多</text></view>
+                <view class="middle-list-items">
+                    <view class="middle-list-item"><image src="../../image/shop_img1.png"></image></view>
+                    <view class="middle-list-item"><image src="../../image/shop_img2.png"></image></view>
+                    <view class="middle-list-item"><image src="../../image/shop_img3.png"></image></view>
+                </view>
+                <view class="middle-list-texts">
+                    <text>干拌抿节（33）</text><text>蒜泥羊肚（31）</text>
+                    <text>麻麻鱼（29）</text><text>糖醋里脊（26）</text>
+                    <text>油饼（24）</text><text>铁锅炖（18）</text>                    
+                </view>
+            </view>
+            <!-- 优惠 -->
+            <view class="middle-list youhui">
+                <view class="middle-list-title">优惠</view>
+                <view class="middle-list-tip active">消费满100元送20元代金券 <text>3.1折</text></view>
+                <view class="middle-list-texts">
+                    <view class="middle-list-text">
+                        <text class="middle-list-text-left">优惠：</text>
+                        <text class="middle-list-text-right">母亲节特惠，满xxx元减免xx元，仅限老人同行</text>
+                    </view>
+                    <view class="middle-list-text">
+                        <text class="middle-list-text-left">时间：</text>
+                        <text class="middle-list-text-right">2018年10月5日-2018年10月30日</text>
+                    </view>
+                    <view class="middle-list-text">
+                        <text class="middle-list-text-left">限量：</text>
+                        <text class="middle-list-text-right">总机500张，剩余118张</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 地址 -->
+            <view class="middle-list dizhi">
+                <view class="middle-list-title">地址</view>
+                <view class="dizhi-top">
+                    <view class="dizhi-top-left">长安街第216号（长安立交向北走50米路东，丽晶大厦）</view>
+                    <view class="dizhi-top-right"><image src="../../image/tel.png" mode="widthFix"></image></view>
+                </view>
+                <view class="dizhi-map">
+                    <image src="../../image/map.png" mode="widthFix"></image>
+                </view>
+            </view>
+            <!-- 标签 -->
+            <view class="middle-list biaoqian">
+                <view class="middle-list-title">标签 <text class="middle-list-title-right">更多</text></view>
+                <view class="middle-list-texts">
+                    <text>麻辣</text><text>小吃</text>
+                    <text>老板娘漂亮</text><text>小资</text>
+                    <text>打卡圣地</text><text>麻辣</text>
+                </view>
+            </view>
+            <!-- 提示 -->
+            <view class="middle-list tishi">
+                <view class="middle-list-title">提示 <text class="middle-list-title-right">更多</text></view>
+                <view class="middle-list-texts">
+                    <text>24小时营业</text><text>停车难</text>
+                    <text>服务一流</text><text>需预定</text>
+                    <text>饭点排队</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 底部选项卡 + 对应页面 -->
+    <view class="content-down">
+        <view class="nav">
+            <view class="nav-item {{navKey==index ? 'active' : ''}}" wx:for="{{navitems}}" wx:key="{{navitem}}" wx:for-index="index" data-key="{{index}}" catchtap="navTab">
+                <image src="{{navKey==index ? item.selectImg : item.img}}" mode="widthFix"></image>
+                <text>{{item.text}}</text>
+            </view>            
+        </view>
+        <!-- 官宣 页面 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <view class="middle-lists">
+                <!-- 简介 -->
+                <view class="middle-list jianjie">
+                    <view class="middle-list-title">简介 <text class="middle-list-title-right">更多</text></view>
+                    <view class="middle-list-texts">
+                        <text>餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介餐馆简介</text>
+                    </view>
+                </view>
+                <!-- 推荐菜 -->
+                <view class="middle-list tuijiancai">
+                    <view class="middle-list-title">推荐菜 <text class="middle-list-title-right">更多</text></view>
+                    <view class="middle-list-items">
+                        <view class="middle-list-item"><image src="../../image/shop_img1.png"></image></view>
+                        <view class="middle-list-item"><image src="../../image/shop_img2.png"></image></view>
+                        <view class="middle-list-item"><image src="../../image/shop_img3.png"></image></view>
+                    </view>
+                    <view class="middle-list-texts">
+                        <text>干拌抿节（33）</text><text>蒜泥羊肚（31）</text>
+                        <text>麻麻鱼（29）</text><text>糖醋里脊（26）</text>
+                        <text>油饼（24）</text><text>铁锅炖（18）</text>                    
+                    </view>
+                </view>
+                <!-- 动态 -->
+                <view class="middle-list dongtai">
+                    <view class="middle-list-title">动态 <text class="middle-list-title-right">更多</text></view>
+                    <view class="media-list">
+                        <view class="media-list-left">
+                            <image src="../../image/shop_img4.png" mode="widthFix"></image>
+                        </view>
+                        <view class="media-list-right">
+                            <view class="media-list-title">市领导xxx到东门店工作调研，了解舆情，xxx陪同</view>
+                            <view class="media-list-tip">视频文字介绍部分视频文字介绍部分视频文字介绍部分视频文字介绍介绍</view>
+                        </view>
+                    </view>
+                </view>
+                <!-- 视频 -->
+                <view class="middle-list dongtai">
+                    <view class="middle-list-title">视频 <text class="middle-list-title-right">更多</text></view>
+                    <view class="media-list">
+                        <view class="media-list-left">
+                            <image src="../../image/shop_img4.png" mode="widthFix"></image>
+                            <view class="media-mask"><image src="../../image/play.png" mode="widthFix"></image></view>
+                        </view>
+                        <view class="media-list-right">
+                            <view class="media-list-title">市领导xxx到东门店工作调研，了解舆情，xxx陪同</view>
+                            <view class="media-list-tip">视频文字介绍部分视频文字介绍部分视频文字介绍部分视频文字介绍介绍</view>
+                        </view>
+                    </view>
+                </view>
+            </view>            
+        </view>
+        <!-- 问答 页面 -->
+        <view class="page page-1" hidden="{{navKey != 1}}">
+            <view class="middle-lists">
+                <view class="middle-list wenda">
+                    <view class="middle-list-title">问答 <text class="middle-list-title-right">更多</text></view>
+                    <view class="wenda-items">
+                        <view class="wenda-item">
+                            <view class="wenda-item-title">过节期间是不是会延长营业时间？</view>
+                            <view class="wenda-item-tip">是的，延长到凌晨2点</view>
+                        </view>
+                        <view class="wenda-item">
+                            <view class="wenda-item-title">可以预定除夕团圆饭吗？</view>
+                            <view class="wenda-item-tip">可以的，电话12354325423</view>
+                        </view>
+                        <view class="wenda-item">
+                            <view class="wenda-item-title">过节期间是不是会延长营业时间？</view>
+                            <view class="wenda-item-tip">是的，延长到凌晨2点</view>
+                        </view>
+                    </view>
+                    <view class="wenda-down"><image src="../../image/question.png" mode="widthFix"></image><text>提问</text></view>
+                </view>
+            </view>
+        </view>
+        <!-- 推荐 页面 -->
+        <view class="page page-2" hidden="{{navKey != 2}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322赞同</text>
+                    </view>
+                </view>
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating active">322赞同</text>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>
+</view>

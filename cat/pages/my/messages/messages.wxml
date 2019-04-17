@@ -1,0 +1,41 @@
+<view class="container">
+    <view class='cui-header'>
+        <view class="cui-header-left header-back" bindtap="back"><image mode="widthFix" src="../../image/back-black.png"></image></view>
+        <view class='cui-header-title'>消息</view>
+        <view class="cui-header-right">全部设为已读</view>
+    </view>
+    <view class="content">
+        <view class="lists">
+            <view class="list active">
+                <view class="list-top">
+                    <text class="user-name active">@封號→消失</text> <text class="status">收藏了帖子</text>
+                    <text class='time'>3小时前</text>
+                </view>
+                <view class="list-down">
+                    <view class="badge small-badge red"></view>
+                    <text>喜欢重口味的伙伴看过来，超美味的美蛙</text>
+                </view>
+            </view>
+            <view class="list active">
+                <view class="list-top">
+                    <text class="user-name active">@封號→消失</text> <text class="status">转发了帖子</text>
+                    <text class='time'>3小时前</text>
+                </view>
+                <view class="list-down">
+                    <view class="badge small-badge red"></view>
+                    <text>喜欢重口味的伙伴看过来，超美味的美蛙</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-top">
+                    <text class="user-name">@封號→消失</text> <text class="status">评论了帖子</text>
+                    <text class='time'>3小时前</text>
+                </view>
+                <view class="list-down">
+                    <!-- <view class="badge small-badge red"></view> -->
+                    <text>喜欢重口味的伙伴看过来，超美味的美蛙</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

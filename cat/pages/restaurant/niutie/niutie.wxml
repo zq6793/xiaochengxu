@@ -1,0 +1,196 @@
+<!--pages/restaurant/niutie/niutie.wxml-->
+<!-- 好餐馆牛帖榜 -->
+<view class="container">
+    <view class="content">
+        <!-- 导航 -->
+        <view class="nav">
+            <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">最受赞同</view>
+            <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">最受欢迎</view>
+            <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">最受关注</view>
+            <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">最具口碑</view>
+        </view>
+        <!-- 最受赞同对应页面 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="badge">1</text>
+                            <text class="user-name active">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle" catchtap="openWin" data-url="../../common/article_detail/article_detail">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322赞同</text>
+                    </view>
+                </view>
+
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="badge">1</text>
+                            <text class="user-name active">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle" catchtap="openWin" data-url="../../common/article_detail/article_detail">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322赞同</text>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+        <!-- 最受欢迎对应页面 -->
+        <view class="page page-1" hidden="{{navKey != 1}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="badge">1</text>
+                            <text class="user-name active">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle" catchtap="openWin" data-url="../../common/article_detail/article_detail">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322收藏</text>
+                    </view>
+                </view>
+                     
+            </view>
+        </view>
+        <!-- 最受关注对应页面 -->
+        <view class="page page-2" hidden="{{navKey != 2}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="badge">1</text>
+                            <text class="user-name active">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle" catchtap="openWin" data-url="../../common/article_detail/article_detail">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322关注</text>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+        <!-- 最具口碑对应页面 -->
+        <view class="page page-3" hidden="{{navKey != 3}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="badge">1</text>
+                            <text class="user-name active">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1" catchtap="clickShowModal">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle" catchtap="openWin" data-url="../../common/article_detail/article_detail">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                        <view class="referees">好友@金三胖</view>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322互动</text>
+                    </view>
+                </view>
+            </view>
+        </view> 
+    </view>
+</view>

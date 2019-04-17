@@ -1,0 +1,37 @@
+<!--pages/common/selectCity/selectCity.wxml-->
+<scroll-view class='cityList' scroll-y scroll-into-view='{{currentIndex}}' scroll-top='{{scrollTop}}'>
+    <!-- 当前位置 -->
+    <view class="currentCity" id="id0">
+        <text>西安</text><text>GPS定位</text>
+    </view>
+    <!-- 历史访问城市 -->
+    <view class="historyCity">
+        <view class="historyCity-title">历史访问城市</view>
+        <view class="historyCity-lists">
+            <text class="historyCity-list">西安</text>
+            <text class="historyCity-list">成都</text>
+            <text class="historyCity-list">重庆</text>
+            <text class="historyCity-list">上海</text>
+        </view>
+    </view>
+    <!-- 国内热门城市 -->
+    <view class="hotCity">
+        <view class="hotCity-title">国内热门城市</view>
+        <view class="hotCity-lists">
+            <text class="hotCity-list">西安</text>
+            <text class="hotCity-list">成都</text>
+            <text class="hotCity-list">重庆</text>
+            <text class="hotCity-list">上海</text>
+        </view>
+    </view>
+     <view wx:for='{{allCities}}' wx:key="items">
+          <view class='letter-class cityListLetter' id="id{{index}}">{{item.letter}}</view>
+          <view class='item-class cityListItem' wx:for='{{item.cityList}}' wx:for-item='cityItem' wx:key="item" bindtap='citySelectEvent' data-city='{{cityItem.name}}' data-letter='{{cityItem.key}}' data-id="{{cityItem.id}}">{{cityItem.name}}</view>
+     </view>
+</scroll-view>
+
+<view class='citySlide' catchtouchstart='slideStart' catchtouchmove='slideMove' catchtouchend='slideEnd'>
+     <view class='citySlideItem' wx:for='{{allCities}}' wx:key="items" data-index='{{index}}'>{{item.letter}}</view>
+</view>
+
+<text class='letterText' hidden='{{isLetterHidden}}' style='top:{{letterTop}}px;left:{{letterLeft}}px'>{{letterText}}</text>

@@ -1,0 +1,34 @@
+<!-- 基本设置页 -->
+<view class="container">
+    <view class="nickname"><input type="text" value="{{nickname}}" placeholder="馋猫昵称，不可修改"></input></view>
+    <view class="sex">
+        <radio-group class="radio-group" bindchange="sexChange">
+            <label class="radio" wx:for="{{sex}}" wx:key="item">
+                <radio value="{{item.value}}" checked="{{item.checked}}" color="#FF9204"/>
+                {{item.value}}
+            </label>
+        </radio-group>
+    </view>
+    <view class="citys">
+        <input type="text" value="{{citys}}" placeholder="常驻城市，最多两个，以逗号隔开"></input>
+    </view>
+    <view class="citys-sxcd">
+        <input type="text" value="{{citys_sxcd}}" placeholder="常驻城市的熟悉程度"></input>
+    </view>
+    <view class="autograph">
+        <textarea value="{{autograph}}" placeholder="一句话签名"></textarea>
+    </view>
+    <view class="washwell">
+        <textarea value="{{washwell}}" placeholder="口味喜好，最多10个标签，以逗号隔开"></textarea>
+    </view>
+    <view class="pic-view" bindtap="chooseImg">
+        <view class="pic-img">
+            <image src="{{img}}" mode="widthFix"></image>           
+        </view>
+        <view class="pic-btn" hidden="{{hidePicbtn}}">
+            <image src="../../../image/my/addimgbtn.png" mode="widthFix"></image>
+        </view>
+    </view>
+    <view class="tip">点击添加上传顶部图片</view>
+    <view class="submit">确认</view>
+</view>

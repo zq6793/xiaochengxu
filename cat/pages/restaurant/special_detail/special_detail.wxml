@@ -1,0 +1,99 @@
+<!--pages/restaurant/special_detail/special_detail.wxml-->
+<!-- 特色详情 -->
+<view class="container">
+    <!-- 广告 轮播图 -->
+    <swiper class="banner" display-multiple-items='1' indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" style="height:{{banner.height}}px;">
+        <block wx:for="{{banner.img}}" wx:key="{{banner.img}}">
+            <swiper-item class="swiper-item">
+                <view class='swiper-slide'>
+                    <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper> 
+    <view class="content-top">
+        <view class="name">{{title}}</view>
+        <view class="referees">好友@金三胖、@东尼木木推荐了该餐馆</view>
+        <view class="info-lists">
+            <view class="info-list">
+                <view class="text">水盆羊肉是以羊腩肉为主要食材的一道菜品，是陕西地区汉族著名的传统小吃，源自陕西省渭南市大荔县朝邑镇（原同州府治朝邑县），以陕西省渭南市大荔、蒲城、澄城三县的水盆羊肉最为有名，其中尤以澄城的水盆羊肉最为地道，最为悠久，并于2016年1月入选陕西省第5批非物质文化遗产名录。。水盆羊肉以大荔水盆羊肉最为有名。水盆羊肉是由商周时代的“羊臐”演变而来。秦汉时称为“羊肉臐”，唐宋时又叫“山煮羊”。</view>
+                <view class="image"><image src="../../image/img5.png" mode="widthFix"></image></view>
+            </view>
+            <view class="info-list">
+                <view class="text">水盆羊肉是以羊腩肉为主要食材的一道菜品，是陕西地区汉族著名的传统小吃，源自陕西省渭南市大荔县朝邑镇（原同州府治朝邑县），以陕西省渭南市大荔、蒲城、澄城三县的水盆羊肉最为有名</view>
+                <view class="image"><image src="../../image/img4.png" mode="widthFix"></image></view>
+            </view>
+            <view class="info-down"><image src="../../image/edit.png" mode="widthFix"></image><text>我要修改</text></view>
+        </view>
+    </view>
+    <view class="content-down">
+        <view class="content-down-title">{{title}}的排行榜</view>
+        <view class="orderby-items">
+            <view class="orderby-item active">
+                <text>商圈</text><image src="../../image/down_active.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>菜系</text><image src="../../image/down.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>价格</text><image src="../../image/down.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>筛选</text><image src="../../image/shaixuan.png"></image>
+            </view>
+        </view>
+        <!-- 数据列表 -->
+        <view class='lists dataLists'>
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="article_detail/article_detail">
+                        <image class="user-avatar" mode="widthFix" src="../../image/shop_img.png"></image>
+                        <text class="user-name">雷记水盆羊肉</text>                        
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">234M</view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="list-middle-top">
+                        <view>
+                            <text>振兴路</text> <text>水盆羊肉</text> <text>微辣</text> <text>人均￥35</text>
+                        </view>
+                        <view>
+                            <text>312只馋猫推荐（含24好友）</text> <text>2019赞同（含4好友）</text> <text>87反对（含1好友）</text>
+                        </view>
+                        <view>
+                            <text>推荐水盆羊肉24次，麻婆豆腐29次</text>
+                        </view>
+                    </view>
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img5.png"></image>                       
+                    </view>
+                    <view class="list-title active">东邪西毒 <text>正在推荐</text></view>
+                    <text class="list-describe">专程去吃：舌尖3坑你不商量，吃水盆就是这里！剧组不知道收了多少推广费，不做功课，就把游（宰）客区的店铺极尽美言，还美其名曰3块肉...</text>
+                </view>                
+            </view>
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+            <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">正在加载</view>
+            </view>    
+        </view>
+    </view>
+</view>

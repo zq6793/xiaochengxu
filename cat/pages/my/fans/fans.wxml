@@ -1,0 +1,159 @@
+<!-- 粉丝 -->
+<view class="container">
+    <!-- <view class='cui-header'>
+        <view class="cui-header-left header-back" bindtap="back"><image mode="widthFix" src="../../image/back-black.png"></image></view>
+        <view class='cui-header-title'>好友</view>
+    </view> -->
+    <view class="content">
+        <view class="lists dataLists">
+            <view class="list" wx:for="{{data}}" wx:key="{{item}}" wx:index="{{index}}" data-id="{{item.id}}">
+                <view class="list-left">
+                    <image src="{{item.belongs_to_member.thumb ? item.belongs_to_member.thumb : '../image/avatar.png'}}" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">{{item.belongs_to_member.nickname}}</text>
+                            <view class="user-level">
+                                <view class="user-level" wx:if="{{item.belongs_to_member.level == 1}}">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 2}}">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 3}}">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 4}}">
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 5}}">
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 6}}">
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_violet.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 7}}">
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 8}}">
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 9}}">
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                                <image mode="widthFix" src="../../image/maozhua_blue.png"></image>
+                            </view>
+                            <view class="user-level" wx:if="{{item.belongs_to_member.level == 10}}">
+                                <image mode="widthFix" src="../../image/maotou.png"></image>
+                            </view>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">{{item.is_friend===0? no_friends: is_friend}}</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view><text class="city">{{item.belongs_to_member.city}}</text> {{item.belongs_to_member.city_desc}}</view>
+                        <view>推荐<text>{{item.member_label.recommend_restaurant_count}}</text>家本地餐馆，获得<text>{                                                 {item.member_label.like_count}}</text>次赞同</view>
+                        <view>热心帮助我<text>{{item.member_label.help_my_count}}</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>{{item.member_label.recommend_restaurant_same_count	}}</text>家相同</view>
+                        <view>我和TA的口味有<text>{{item.member_label.rate}}</text>相似</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">加关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view><text class="city">西安</text>  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+             <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">加关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">取消关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+    </view>
+</view>

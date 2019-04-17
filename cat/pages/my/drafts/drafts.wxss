@@ -1,0 +1,7 @@
+/* fileName: pages/my/drafts/drafts.wxss */
+@import '../../../public/style.wxss';
+
+/* 草稿箱 */
+.list-middle{padding: 0 12px 12px 12px;}
+.list-down-1{width: 100%;}
+.list-down-1 text{line-height: 30px; font-size: 15px; margin-right: 20px;  color: #7B7B7B;}

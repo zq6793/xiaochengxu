@@ -1,0 +1,57 @@
+<!--pages/restaurant/niuren/niuren.wxml-->
+<!-- 好餐馆牛人榜 -->
+<view class="container">
+    <view class="content">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                    <text class="badge">1</text>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name active">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">加关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                    <text class="badge">20</text>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name active">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">送鲜花</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                    </view>
+                </view>
+            </view>
+        </view>       
+    </view>
+</view>

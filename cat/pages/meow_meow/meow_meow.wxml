@@ -1,0 +1,316 @@
+<!-- meow_meow.wxml -->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">
+        <view class="header-l address" catchtap="openWin" data-url="../common/address/address"><image src="../image/index_address.png"></image><text>西安市</text></view>
+        <view class="header-r">
+            <view class="search" catchtap='openWin' data-url="../common/search/search">
+                <image class="search-img" src="../image/search.png"></image>
+                <input disabled='disabled' class="search-input"  type="text" value="{{searchValue}}" placeholder="搜索"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>
+            <view class="release" catchtap="openWin" data-url="../common/publish_articles/publish_articles"><image class="release-img" src="../image/add.png"></image></view>
+            <view class="my" catchtap="openWin" data-url="../my/my"><image class="my-img" src="../image/index_my.png"></image></view>
+        </view>
+    </view>
+    <!-- 菜单导航 -->
+    <view class="nav">
+        <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">颜值</view>
+        <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">随笔</view>
+        <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">同城</view>
+        <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">玩儿</view>
+    </view>
+    <!-- 颜值菜单对应页面 -->
+    <view class="page-0 page" hidden="{{navKey != 0}}">        
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <text>129喜欢</text>
+                    <text>228互动</text>
+                </view>
+            </view>
+            <!-- 好餐馆榜单 -->
+            <view class="list bangdan">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">好餐馆榜单</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img2.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                    </view>                    
+                </view>                
+            </view>
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+
+            <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">70%</view>
+                    </view>
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img2.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <text>129喜欢</text>
+                    <text>228互动</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+    <!-- 随笔菜单对应页面 -->
+    <view class="page-1 page" hidden="{{navKey != 1}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <!-- <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view> -->
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>100金币</text> <text>28推荐</text>
+                    </view>                    
+                </view>
+            </view>
+
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name active">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <!-- <view class="top-r-2">70%</view> -->
+                        <view class="top-r-3"><image src="../image/more.png"></image></view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <!-- <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view> -->
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>100金币</text> <text>28推荐</text>
+                    </view>                   
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+    <!-- 同城菜单对应页面 -->
+    <view class="page-2 page" hidden="{{navKey != 2}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <text>129金币</text>
+                    <text>228推荐</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+    <!-- 玩儿菜单对应页面 -->
+    <view class="page-3 page" hidden="{{navKey != 3}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>129参与</text> <text>228帖</text>
+                    </view>
+                    <view class="list-down-2" catchtap="openWin" data-url="waner_canyu/waner_canyu">
+                        <view>
+                            <image src="../image/flag.png"></image> <text>我参与一下</text>
+                        </view>
+                        <view>
+                            <image src="../image/mao.png"></image> <text>邀馋猫回答</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">70%</view>
+                    </view>
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img2.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>129参与</text> <text>228帖</text>
+                    </view>
+                    <view class="list-down-2" catchtap="openWin" data-url="waner_canyu/waner_canyu">
+                        <view>
+                            <image src="../image/flag.png"></image> <text>我参与一下</text>
+                        </view>
+                        <view>
+                            <image src="../image/mao.png"></image> <text>邀馋猫回答</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+</view>

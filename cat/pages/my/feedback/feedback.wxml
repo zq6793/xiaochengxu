@@ -1,0 +1,17 @@
+<!-- 举报/建议 -->
+<view class="container">
+    <view class="content">
+        <view class="types">
+            <radio-group class="radio-group" bindchange="typesChange">
+                <label class="radio" wx:for="{{types}}" wx:key="item">
+                    <radio value="{{item.value}}" checked="{{item.checked}}" color="#FF9204"/>
+                    {{item.value}}
+                </label>
+            </radio-group>
+        </view>
+        <view class="textarea">
+            <textarea value="{{textarea}}" placeholder="请输入要举报或建议的内容"></textarea>
+        </view>
+        <view class="submit">提交</view>
+    </view>
+</view>

@@ -1,0 +1,396 @@
+<!-- 发布 -->
+<view class="container">
+    <view class="content">
+        <!-- 导航 -->
+        <view class="nav">
+            <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">餐厅</view>
+            <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">菜谱</view>
+            <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">喵喵</view>
+            <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">求助</view>
+            <view class="nav-item {{navKey==4 ? 'active' : ''}}" data-key="4"  bindtap="navTab">玩儿</view>
+            <view class="nav-item {{navKey==5 ? 'active' : ''}}" data-key="5"  bindtap="navTab">吐槽</view>
+        </view>
+        <!-- PAGE ==> "餐厅"  帖子发布页面 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <view class="page-title">推荐好餐馆，告诉大家哪儿有好吃的</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个有意思的标题吧"></input>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="推荐理由，多说点细节更能诱惑到馋猫哦~" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn" catchtap="startRecord"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                        <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                    </view>                   
+                </view>
+            </view>
+            <view class="banner-menu">
+                <view class="banner-imgview" catchtap="uploadBannerImg" hidden="{{!dataList[navKey].bannerIsShow}}"><image src="{{dataList[navKey].banner}}" mode="widthFix"></image></view>
+                <view class="banner-imgadd" catchtap="uploadBannerImg" hidden="{{dataList[navKey].bannerIsShow}}"><image src="../../image/add_gray.png" mode="widthFix"></image></view>           
+                <view class="banner-tip">点击添加上传顶部图片</view>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="好吃程度" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="去过的次数" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="拿手菜标准名称，多个名称可用逗号隔开"></input>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="推荐菜，多个菜品可用逗号隔开"></input>
+            </view>
+            <view class="price">
+                <input type="text" value="" placeholder="人均单价"></input><text>元</text>
+            </view>
+            <view class="informations">
+                <view class="information-title">以下可补充修改餐馆的基本信息</view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="餐馆名称"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="菜系"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="所在商圈"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="地址" disabled="disabled"></input>
+                    <image src="../../image/right_gray.png" mode="widhtFix"></image>
+                </view>
+                <view class="map-menu">
+                    <view class="map-btn">地图</view>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="电话"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="餐馆标签，多个标签可用逗号隔开"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="提示标签，多个标签可用逗号隔开"></input>
+                </view>
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+        <!-- PAGE ==> "菜谱"  帖子发布页面 -->
+        <view class="page page-1" hidden="{{navKey != 1}}">
+            <view class="page-title">推荐拿手菜，告诉大家怎么做好吃的</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个有意思的标题吧"></input>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="拿手菜的做法，多说点细节更能获得馋猫的无限景仰~" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                        <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                    </view>                   
+                </view>
+            </view>
+            <view class="banner-menu">
+                <view class="banner-imgview" catchtap="uploadBannerImg" hidden="{{!dataList[navKey].bannerIsShow}}"><image src="{{dataList[navKey].banner}}" mode="widthFix"></image></view>
+                <view class="banner-imgadd" catchtap="uploadBannerImg" hidden="{{dataList[navKey].bannerIsShow}}"><image src="../../image/add_gray.png" mode="widthFix"></image></view>           
+                <view class="banner-tip">点击添加上传顶部图片</view>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="推荐程度" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="做过的次数" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="拿手菜标准名称，多个名称可用逗号隔开"></input>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="标签，多个标签可用逗号隔开"></input>
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+        <!-- PAGE ==> "喵喵"  帖子发布页面 -->
+        <view class="page page-2" hidden="{{navKey != 2}}">
+            <view class="page-title">随手拍，随便聊，同城约，兴致高</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个有意思的标题吧"></input>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="正文" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                        <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                    </view>                   
+                </view>
+            </view>
+            <view class="banner-menu">
+                <view class="banner-imgview" catchtap="uploadBannerImg" hidden="{{!dataList[navKey].bannerIsShow}}"><image src="{{dataList[navKey].banner}}" mode="widthFix"></image></view>
+                <view class="banner-imgadd" catchtap="uploadBannerImg" hidden="{{dataList[navKey].bannerIsShow}}"><image src="../../image/add_gray.png" mode="widthFix"></image></view>           
+                <view class="banner-tip">点击添加上传顶部图片</view>
+            </view>
+            <view class="type-btns">
+                <view class="type-btn {{dataList[navKey].typeBtnIndex==0 ? 'active' : ''}}" data-key="0" bindtap="typeBtnChange">颜值</view>
+                <view class="type-btn {{dataList[navKey].typeBtnIndex==1 ? 'active' : ''}}" data-key="1" bindtap="typeBtnChange">随笔</view>
+                <view class="type-btn {{dataList[navKey].typeBtnIndex==2 ? 'active' : ''}}" data-key="2" bindtap="typeBtnChange">同城</view>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="城市" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="标签，多个标签可用逗号隔开"></input>
+            </view>
+            <view class="informations">
+                <view class="information-title">文中如涉及餐馆名称，可选填</view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="餐馆名称"></input>
+                </view>                
+                <view class="input-item">
+                    <input type="text" value="" placeholder="所在商圈"></input>
+                </view>                
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+        <!-- PAGE ==> "求助"  帖子发布页面 -->
+        <view class="page page-3" hidden="{{navKey != 3}}">
+            <view class="page-title">求推荐好餐馆，求推荐拿手菜</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个有意思的标题吧"></input>
+            </view>
+            <view class="type-btns">
+                <view class="type-btn {{dataList[navKey].typeBtnIndex==0 ? 'active' : ''}}" data-key="0" bindtap="typeBtnChange">求助好餐馆</view>
+                <view class="type-btn {{dataList[navKey].typeBtnIndex==1 ? 'active' : ''}}" data-key="1" bindtap="typeBtnChange">求助拿手菜</view>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="输入要求，要求越具体越能获得准确推荐哦~" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>   
+                    </view>                   
+                </view>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="赠送金币数"></input>
+            </view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="城市" disabled="disabled"></input>
+                <image src="../../image/right_gray.png" mode="widhtFix"></image>
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+        <!-- PAGE ==> "玩儿"  帖子发布页面 -->
+        <view class="page page-4" hidden="{{navKey != 4}}">
+            <view class="page-title">拟一个有意义的主题，邀请大家一起来玩儿</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个短小的活动主题"></input>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="活动说明" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                        <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                    </view>                   
+                </view>
+            </view>
+            <view class="date-choose">
+                <view class="date-btn date-start"><input type="text" disabled="disabled" placeholder="起始日期" value=""></input></view>
+                <text>至</text>
+                <view class="date-btn date-end"><input type="text" disabled="disabled" placeholder="终止日期" value=""></input></view>
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+        <!-- PAGE ==> "吐槽"  帖子发布页面 -->
+        <view class="page page-5" hidden="{{navKey != 5}}">
+            <view class="page-title">吐槽差餐馆，告诉大家不要去哪儿吃</view>
+            <view class="input-item">
+                <input type="text" value="" placeholder="写一个有意思的标题吧"></input>
+            </view>
+            <!-- 文本编辑器 -->
+            <view class="editor-menu">
+                <!-- 输入文字内容+上传图片后显示区域 -->
+                <view class="textimg-itmes">
+                    <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                        <view class="textarea-view" wx:if="{{item.value}}">
+                            <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                        </view>
+                        <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                            <image src="{{img}}" mode="widthFix"></image>
+                            <!-- 删除图片 -->
+                            <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                        </view>                        
+                    </view>
+                </view>      
+                <!-- 文本编辑+上传图片区域 -->
+                <view class="editor-main">
+                    <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="吐槽理由，多说点细节更能让人信服~~" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                    <view class="btns">
+                        <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                        <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                    </view>                   
+                </view>
+            </view>
+            <view class="banner-menu">
+                <view class="banner-imgview" catchtap="uploadBannerImg" hidden="{{!dataList[navKey].bannerIsShow}}"><image src="{{dataList[navKey].banner}}" mode="widthFix"></image></view>
+                <view class="banner-imgadd" catchtap="uploadBannerImg" hidden="{{dataList[navKey].bannerIsShow}}"><image src="../../image/add_gray.png" mode="widthFix"></image></view>           
+                <view class="banner-tip">点击添加上传顶部图片</view>
+            </view>
+            <view class="price">
+                <input type="text" value="" placeholder="人均单价"></input><text>元</text>
+            </view>
+            <view class="informations">
+                <view class="information-title">以下可补充修改餐馆的基本信息</view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="餐馆名称"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="菜系"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="所在商圈"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="地址" disabled="disabled"></input>
+                    <image src="../../image/right_gray.png" mode="widhtFix"></image>
+                </view>
+                <view class="map-menu">
+                    <view class="map-btn">地图</view>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="电话"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="餐馆标签，多个标签可用逗号隔开"></input>
+                </view>
+                <view class="input-item">
+                    <input type="text" value="" placeholder="提示标签，多个标签可用逗号隔开"></input>
+                </view>
+            </view>
+            <view class="down-btns">
+                <view class="submit orange-bg" catchtap="submit">现在发布</view>
+                <view class="save-draft">存为草稿</view>
+            </view>
+        </view>
+    </view>
+    <!-- 录音弹窗 -->
+    <view class="cui-record" hidden="{{isHideRecordModal}}">
+        <view class="cui-mask" catchtap="cancelRecord" bindtouchmove="cancelRecord"></view>
+        <view class="cui-record-main">
+            <view class="cui-record-title">{{dataList[navKey].recordTitle}}</view>
+            <view class="cui-record-close"  catchtap="cancelRecord"><image src="../../image/close_gray.png" mode="widthFix"></image></view>
+            <view class="cui-record-load">
+                <view class="rect rect-small-1"></view>
+                <view class="rect rect-small-2"></view>
+                <view class="rect rect-small-3"></view>                
+                <view class="rect1 rect-animate"></view>
+                <view class="rect2 rect-animate"></view>
+                <view class="rect3 rect-animate"></view>
+                <view class="rect4 rect-animate"></view>
+                <view class="rect5 rect-animate"></view>
+                <view class="rect6 rect-animate"></view>
+                <view class="rect7 rect-animate"></view>
+                <view class="rect8 rect-animate"></view>
+                <view class="rect9 rect-animate"></view>
+                <view class="rect rect-small-3"></view>
+                <view class="rect rect-small-2"></view>
+                <view class="rect rect-small-1"></view>
+            </view>
+            <view class="cui-record-stopbtn" catchtap="uploadRecord"><image src="../../image/huatong.png" mode="widhtFix"></image><text>正在收音</text> <text>点击停止</text></view>
+        </view>
+    </view>
+</view>

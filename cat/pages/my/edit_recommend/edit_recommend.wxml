@@ -1,0 +1,82 @@
+<!-- 修改推荐帖 -->
+<view class="container">
+    <view class="content">
+        <!-- 导航 -->
+        <view class="nav">
+            <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">好餐馆</view>
+            <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">拿手菜</view>            
+        </view>
+        <!-- 好餐馆 对应数据列表 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <!-- 数据列表 -->
+            <view class='lists dataLists'>
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-btn edit"><image src="../../image/edit.png" mode=""></image></view>
+                            <view class="top-r-btn delete" catchtap="deleteFn"><image src="../../image/delete.png" mode=""></image></view>
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322赞同</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 拿手菜 对应数据列表 -->
+        <view class="page page-1" hidden="{{navKey != 1}}">
+            <!-- 数据列表 -->
+            <view class='lists dataLists'>
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-btn edit"><image src="../../image/edit.png" mode=""></image></view>
+                            <view class="top-r-btn delete" catchtap="deleteFn"><image src="../../image/delete.png" mode=""></image></view>
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating">322赞同</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

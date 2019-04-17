@@ -1,0 +1,102 @@
+<view class="container">
+    <!-- <view class='cui-header'>
+        <view class="cui-header-left header-back" bindtap="back"><image mode="widthFix" src="../image/back.png"></image></view>
+        <view class='cui-header-title'>个人中心</view>
+        <view class="cui-header-right"><image mode="widthFix" src='../image/xiangji.png'></image></view>
+    </view> -->
+    <view class="content">
+        <view class="content-top">
+            <image class="content-top-bg" src="../image/my/bg.png" mode="aspectFill"></image>
+            <view class='content-top-left'>
+                <image mode="widthFix" src='../image/avatar.png'></image>
+            </view>
+            <view class="content-top-right">
+                <view class="content-top-right-view1">
+                    <text class="user-name">封號→消失</text>
+                    <view class="user-level">
+                        <image mode="widthFix" src="../image/maozhao_white.png"></image>
+                        <image mode="widthFix" src="../image/maozhao_white.png"></image>
+                    </view>
+                    <view class="icon-right" catchtap='openWin' data-url="../my/settings/personal_data/personal_data"><image mode='widthFix' src="../image/right.png"></image></view>
+                    <view class="jifen-xianhua">
+                        <view class='jifen'>积分 <text>3924</text></view>
+                        <view class='xianhua'>鲜花 <text>88</text></view>
+                    </view>
+                </view>
+                <view class="content-top-right-view2">
+                    <text>南京，土生土长的南京人</text>
+                    <text>推荐12家好餐馆、8个拿手菜、获得82次赞，助猫为乐3次</text>
+                </view>
+            </view>            
+        </view>
+        <view class="content-down">
+            <view class="my-lists">
+                <view class="my-list" catchtap='openWin' data-url="../common/user_detail/user_detail">
+                    <image src="../image/my/p1.png" mode="widthFix"></image>
+                    <text>我的主页</text>
+                </view>
+                <view class="my-list" catchtap='openWin' data-url="../my/messages/messages">
+                    <image src="../image/my/p3.png" mode="widthFix"></image>
+                    <text>消息</text>
+                    <text class="badge badge-msg">5</text>
+                </view>
+                <view class="my-list" bindtap="openWin" data-url="../my/goodfriend/goodfriend">
+                    <image src="../image/my/p4.png" mode="widthFix"></image>
+                    <text>好友</text>
+                </view>
+                <view class="my-list" catchtap="openWin" data-url="../my/fans/fans">
+                    <image src="../image/my/p5.png" mode="widthFix"></image>
+                    <text>粉丝</text>
+                </view>
+                <!-- <view class="my-list" catchtap="openWin" data-url="../my/seekhelp/seekhelp">
+                    <image src="../image/my/qiuzhu.png" mode="widthFix"></image>
+                    <text>求助</text>
+                </view> -->
+                <view class="my-list" catchtap="openWin" data-url="../my/collection/collection">
+                    <image src="../image/my/p7.png" mode="widthFix"></image>
+                    <text>收藏</text>
+                </view>
+                <view class="my-list" catchtap="openWin" data-url="../my/adopt/adopt">
+                    <image src="../image/my/p16.png" mode="widthFix"></image>
+                    <text>采纳好推荐</text>
+                </view>
+                <view class="my-list" catchtap="openWin" data-url="../my/edit_recommend/edit_recommend">
+                    <image src="../image/my/p8.png" mode="widthFix"></image>
+                    <text>修改推荐帖</text>
+                </view>
+                <view class="my-list" catchtap="openWin" data-url="../my/drafts/drafts">
+                    <image src="../image/my/p9.png" mode="widthFix"></image>
+                    <text>草稿箱</text>
+                </view>                
+                <view class="my-list" catchtap='openWin' data-url="../my/settings/home/home">
+                    <image src="../image/my/p19.png" mode="widthFix"></image>
+                    <text>首页设置</text>
+                </view>
+                <view class="my-list" catchtap='openWin' data-url="../my/settings/personal_data/personal_data">
+                    <image src="../image/my/p14.png" mode="widthFix"></image>
+                    <text>基本设置</text>
+                </view>
+                <view class="my-list" catchtap='openWin' data-url="../my/settings/black_list/black_list">
+                    <image src="../image/my/p17.png" mode="widthFix"></image>
+                    <text>黑名单设置</text>
+                </view>
+                <view class="my-list" catchtap="openWin" data-url="../my/feedback/feedback">
+                    <image src="../image/my/p18.png" mode="widthFix"></image>
+                    <text>举报/建议</text>
+                </view>
+            </view>
+            <!-- <view class="signout-btn" catchtap="signOut">退出</view> -->
+            <view class="cui-dialog cui-confirm" hidden='{{signoutFlag==false}}'>
+                <view class='cui-mask' bindtouchstart="hideConfirm" bindtouchmove='hideConfirm'></view>
+                <view class="cui-dialog-main cui-dialog-main-style-1" bindtouchmove='hideConfirm'>
+                    <!-- <view class="cui-dialog-title">退出</view> -->
+                    <view class='cui-dialog-content'>确定退出馋猫吗？</view>
+                    <view class='cui-dialog-down'>
+                        <view class='cui-dialog-down-btn cui-dialog-down-cancel-btn' catchtap='hideConfirm'>取消</view>
+                        <view class="cui-dialog-down-btn cui-dialog-down-confirm-btn"><navigator open-type="exit" target="miniProgram">退出</navigator></view>
+                    </view>
+                </view>                
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,253 @@
+<!--index.wxml-->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">
+        <view class="header-l address" catchtap="openWin" data-url="../common/address/address"><image src="../image/index_address.png"></image><text>西安市</text></view>
+        <view class="header-r">
+            <view class="search" catchtap='openWin' data-url="../common/search/search">
+                <image class="search-img" src="../image/search.png"></image>
+                <input disabled='disabled' class="search-input"  type="text" value="{{searchValue}}" placeholder="搜索"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>
+            <view class="release" catchtap="openWin" data-url="../common/publish_articles/publish_articles"><image class="release-img" src="../image/add.png"></image></view>
+            <view class="my" catchtap="openWin" data-url="../my/my"><image class="my-img" src="../image/index_my.png"></image></view>
+        </view>
+    </view>
+    <!-- 菜单导航 -->
+    <view class="nav">
+        <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">精选</view>
+        <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">好友</view>
+    </view>
+    <!-- 精选菜单对应页面 -->
+    <view class="page-0" hidden="{{navKey != 0}}">
+        <!-- 广告 轮播图 -->
+        <swiper class="banner" display-multiple-items='1' indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" style="height: {{banner.height}}px;">
+            <block wx:for="{{banner.img}}" wx:key="{{banner.img}}">
+                <swiper-item class="swiper-item">
+                    <view class='swiper-slide'>
+                        <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                    </view>
+                </swiper-item>
+            </block>
+        </swiper>  
+        <!-- 菜单 -->
+        <view class='menus'>
+            <view class="menu-item" catchtap="openRestaurant" data-url="../restaurant/restaurant" data-pageindex="0">
+                <image src="../image/menus/a.png"></image> <text>本地特色</text> 
+            </view>
+            <view class="menu-item" catchtap="openRestaurant" data-url="../restaurant/restaurant" data-pageindex="1">
+                <image src="../image/menus/b.png"></image> <text>餐厅排行</text> 
+            </view>
+            <view class="menu-item" catchtap="openRestaurant" data-url="../restaurant/restaurant" data-pageindex="3">
+                <image src="../image/menus/c.png"></image> <text>求推荐</text> 
+            </view>
+            <view class="menu-item" catchtap="openRestaurant" data-url="../restaurant/restaurant" data-pageindex="4">
+                <image src="../image/menus/d.png"></image> <text>优惠券</text> 
+            </view>
+            <view class="menu-item" catchtap="openMeowmeow" data-url="../meow_meow/meow_meow" data-pageindex="3">
+                <image src="../image/menus/e.png"></image> <text>玩儿</text> 
+            </view>
+            <view class="menu-item" catchtap="openRecipes" data-url="../recipes/recipes" data-pageindex="0">
+                <image src="../image/menus/f.png"></image> <text>菜谱分类</text> 
+            </view>
+            <view class="menu-item" catchtap="openRecipes" data-url="../recipes/recipes" data-pageindex="1">
+                <image src="../image/menus/g.png"></image> <text>菜谱排行</text> 
+            </view>
+            <view class="menu-item" catchtap="openMeowmeow" data-url="../meow_meow/meow_meow" data-pageindex="2">
+                <image src="../image/menus/h.png"></image> <text>同城约</text> 
+            </view>
+            <view class="menu-item" catchtap="openWin" data-url="niuren/niuren">
+                <image src="../image/menus/i.png"></image> <text>牛人</text> 
+            </view>
+            <view class="menu-item" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                <image src="../image/menus/j.png"></image> <text>我的主页</text> 
+            </view>
+        </view>  
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1" catchtap="clickShowModal">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle" catchtap="openWin" data-url="../common/article_detail/article_detail">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <text class="address">洒金桥</text>
+                    <text class="shop-name">刘鑫小炒泡馍</text>
+                    <text class="price">￥35.00</text>
+                    <text class="rating">322赞同</text>
+                </view>
+            </view>            
+            <!-- 抽奖广告 -->
+            <view class="list guanggao" catchtap="openWin" data-url="../common/lottery/lottery" data-title="抽奖广告详情" data-id="0">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <!-- 广告 轮播图 -->
+                        <swiper class="banner" display-multiple-items='1' indicator-dots="{{adbanner.indicatorDots}}" autoplay="{{adbanner.autoplay}}" interval="{{adbanner.interval}}" duration="{{adbanner.duration}}" style="height: {{adbanner.height}}px;">
+                            <block wx:for="{{adbanner.img}}" wx:key="{{adbanner.img}}">
+                                <swiper-item class="swiper-item">
+                                    <view class='swiper-slide'>
+                                        <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                                        <text class="list-title">食于自然</text>
+                                        <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>
+                                    </view>
+                                </swiper-item>
+                            </block>
+                        </swiper>  
+                        <!-- <image mode="widthFix" src="../image/img4.png"></image> -->
+                    </view>                                        
+                </view>                
+            </view>
+
+            <!-- 公告 -->
+            <view class="list guanggao" catchtap="openWin" data-url="../common/lottery/lottery" data-title="公告" data-id="0">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">公告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <!-- 广告 轮播图 -->
+                        <swiper class="banner" display-multiple-items='1' indicator-dots="{{noticebanner.indicatorDots}}" autoplay="{{noticebanner.autoplay}}" interval="{{noticebanner.interval}}" duration="{{noticebanner.duration}}" style="height: {{noticebanner.height}}px;">
+                            <block wx:for="{{noticebanner.img}}" wx:key="{{noticebanner.img}}">
+                                <swiper-item class="swiper-item">
+                                    <view class='swiper-slide'>
+                                        <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                                        <text class="list-title">食于自然</text>
+                                        <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>
+                                    </view>
+                                </swiper-item>
+                            </block>
+                        </swiper>  
+                        <!-- <image mode="widthFix" src="../image/img4.png"></image> -->
+                    </view>                                       
+                </view>                
+            </view>
+
+            <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">70%</view>
+                    </view>
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img2.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <text class="address">洒金桥</text>
+                    <text class="shop-name">刘鑫小炒泡馍</text>
+                    <text class="price">￥35.00</text>
+                    <text class="rating">322赞同</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+    <!-- 好友菜单对应页面 -->
+    <view class="page-1" hidden="{{navKey != 1}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <image mode="widthFix" src="../image/img.png"></image>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <text class="address">洒金桥</text>
+                    <text class="shop-name">刘鑫小炒泡馍</text>
+                    <text class="price">￥35.00</text>
+                    <text class="rating">322赞同</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+
+    <!-- 弹出窗口 -->
+    <view class="dialog-modal" hidden="{{isShowModal}}" bindtouchmove="clickHideModal">        
+        <view class="dialog-modal-mask" catchtap="clickHideModal"></view>
+        <view class="dialog-modal-main">
+            <view class="dialog-modal-bg"><image src="../image/win_BG.png" mode="widthFix"></image></view>
+            <view class="dialog-modal-title">用户推荐</view>
+            <view class="dialog-modal-content">
+                <view class="dialog-modal-lists">
+                    <view class="dialog-modal-list">
+                        <view class="point"><image src="../image/point.png" mode="aspectFill"></image></view>
+                        <text>西安 西安生活了20多年的新西安人</text>
+                    </view>
+                    <view class="dialog-modal-list">
+                        <view class="point"><image src="../image/point.png" mode="aspectFill"></image></view>
+                        <text>西安 推荐12家好餐馆、8个拿手菜、获得82次赞，助猫为乐3次</text>
+                    </view>
+                    <view class="dialog-modal-list">
+                        <view class="point"><image src="../image/point.png" mode="aspectFill"></image></view>
+                        <text>我和TA推荐的餐馆中有5家相同</text>
+                    </view>
+                </view>
+            </view>
+            <view class="dialog-modal-close" catchtap="clickHideModal"><image src="../image/close1.png" mode="widthFix"></image></view>
+        </view>
+    </view>
+</view>

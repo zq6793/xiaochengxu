@@ -1,0 +1,104 @@
+<!--pages/common/lottery/lottery.wxml-->
+<!-- 广告抽奖 -->
+<view class="container">
+    <!-- 广告 轮播图 -->
+    <view class="banner-menu">
+        <swiper class="banner" bindchange="swiperChange" display-multiple-items='1' indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" style="height:{{banner.height}}px;">
+            <block wx:for="{{banner.img}}" wx:key="{{banner.img}}">
+                <swiper-item class="swiper-item">
+                    <view class='swiper-slide'>
+                        <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                    </view>
+                </swiper-item>
+            </block>            
+        </swiper> 
+        <view class="imageCount">{{banner.current+1}}/{{banner.img.length}}</view>
+    </view>
+    <!-- 内容 -->
+    <view class="content">
+        <view class="content-top">
+            <view class="title">劲酒   健康美食季  寻味家乡最“美”食</view>
+            <view class="describe">
+                劲酒是以传统中医理论为基础，精选人参、鹿茸等多味名贵药材为原料，运用现代生物技术提取其有效活 性成份精酿而成的保健酒。劲酒秉承了中国传统药补酒的一贯特色，喝后对人体有保健作用的酒，是传统 药酒的分支，其前承传统理论精粹，融会现代生物技术，继承和发扬了中国古老的保健酒文化。 从过去传统的大缸泡，外观浓黑，口感苦涩，大多是在家中自斟自饮，到现在色泽艳丽，口感甜润，在饭店 餐馆高档体面地消费，作为从药酒中分化出来的保健酒代表，劲酒在消费者的心里发生了根本性的转变。主 要品牌有中国劲酒、参茸劲酒等。
+            </view>
+        </view>
+        <view class="content-down">
+            <view class="down-items">
+                <!-- 活动规则 -->
+                <view class="down-item">
+                    <view class="down-item-title">活动规则</view>
+                    <view class="down-item-infos">
+                        <text>阅读相关内容，然后选择唯一正确的答案</text>
+                        <text>一周后，将在所有回答正确的馋猫中抽奖</text>
+                        <text>每人只有一次抽奖机会</text>
+                        <text>每人只有一次中奖机会</text>
+                        <text>一等奖：1名，奖励劲酒一箱</text>
+                        <text>二等奖：3名，每人奖励劲酒两瓶</text>
+                        <text>三等奖：10名，每人奖励劲酒一瓶</text>
+                    </view>
+                </view>
+                <!-- 答对题目，赢取奖品 -->
+                <view class="down-item">
+                    <view class="down-item-title">答对题目，赢取奖品</view>
+                    <view class="down-item-infos">
+                        <text>劲酒是以传统中医理论为基础，精选_____等多味名贵药材为原料，运用现代生物技术提取其有 效活性成份精酿而成的保健酒。劲酒秉承了中国传统药补酒的一贯特色，喝后对人体有保健作用的酒，是传 统药酒的分支。</text>                        
+                    </view>
+                    <radio-group class="radio-group" bindchange="btnsChange">
+                        <label class="radio" wx:for="{{btns}}" wx:key="item">
+                            <radio value="{{item.value}}" checked="{{item.checked}}" color="#FF9204"/>
+                            {{item.value}}
+                        </label>
+                    </radio-group>
+                    <view class="down-item-submit">确定</view>
+                </view>
+                <!-- 参与名单 -->
+                <view class="down-item canyumingdan">
+                    <view class="down-item-title">参与名单 <text class="down-item-title-right">更多</text></view>
+                    <view class="down-item-infos">
+                        <text>008  @张三  12.05 23:01</text>
+                        <text>005  @张三  12.05 23:01</text>
+                        <text>003  @张三  12.05 23:01</text>
+                        <text>005  @张三  12.05 23:01</text>
+                        <text>006  @张三  12.05 23:01</text>
+                        <text>007  @张三  12.05 23:01</text>
+                        <text>002  @张三  12.05 23:01</text>
+                        <text>008  @张三  12.05 23:01</text>
+                    </view>
+                </view>
+                <!-- 获奖名单 -->
+                <view class="down-item">
+                    <view class="down-item-title">获奖名单</view>
+                    <view class="down-item-infos">
+                        <view class="down-item-infos-list">
+                            <view class="down-item-infos-list-left"><text>一等奖</text></view>
+                            <view class="down-item-infos-list-right"><text>@张三</text></view>
+                        </view>
+                        <view class="down-item-infos-list">
+                            <view class="down-item-infos-list-left"><text>二等奖</text></view>
+                            <view class="down-item-infos-list-right">
+                                <text>@张三</text>
+                                <text>@李四</text>
+                                <text>@王五</text>
+                            </view>
+                        </view>
+                        <view class="down-item-infos-list">
+                            <view class="down-item-infos-list-left"><text>三等奖</text></view>
+                            <view class="down-item-infos-list-right">
+                                <text>@张三</text>
+                                <text>@李四</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                                <text>@王五</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

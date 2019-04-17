@@ -1,0 +1,10 @@
+/* fileName: pages/my/settings/home/home.wxss */
+@import '../../../../public/style.wxss';
+
+.list{height: 50px; padding: 0 10px 0 15px; font-size: 0; box-sizing: border-box; margin: 0;}
+.list::before{display: none;}
+.list::after{width: -webkit-calc(100% - 15px); width: calc(100% - 15px); left: 15px;}
+.list text{width: -webkit-calc(100% - 60px); width: calc(100% - 57px); height: 50px; line-height: 50px; font-size: 16px; color: #5A5A5A; display: inline-block; vertical-align: middle;}
+
+.wx-switch-input{ height: 26px !important;}
+.wx-switch-input::before,.wx-switch-input::after{height: 24px !important;}

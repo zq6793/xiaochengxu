@@ -1,0 +1,481 @@
+<!--pages/restaurant/restaurant.wxml-->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">
+        <view class="header-l address" catchtap="openWin" data-url="../common/address/address"><image src="../image/index_address.png"></image><text>西安市</text></view>
+        <view class="header-r">
+            <view class="search" catchtap='openWin' data-url="../common/search/search">
+                <image class="search-img" src="../image/search.png"></image>
+                <input disabled='disabled' class="search-input"  type="text" value="{{searchValue}}" placeholder="搜索"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>
+            <view class="release" catchtap="openWin" data-url="../common/publish_articles/publish_articles"><image class="release-img" src="../image/add.png"></image></view>
+            <view class="my" catchtap="openWin" data-url="../my/my"><image class="my-img" src="../image/index_my.png"></image></view>
+        </view>
+    </view>
+    <!-- 导航 -->
+    <view class="nav">
+        <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">特色</view>
+        <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">排行</view>
+        <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">最新</view>
+        <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">求助</view>
+        <view class="nav-item {{navKey==4 ? 'active' : ''}}" data-key="4"  bindtap="navTab">优惠</view>
+    </view>
+    <!-- 特色菜单对应页面 -->
+    <view class="page page-0" hidden="{{navKey != 0}}">
+        <view class="lists">
+            <view class="list" wx:for="{{teseData}}" wx:key="{{item}}" catchtap="openWin" data-url="special_detail/special_detail" data-title="{{item.name}}" data-id="{{item.id}}">
+                <image class="img" src="{{item.thumb}}"></image>
+                <text>{{item.name}}</text>
+            </view>
+            <view class="list" catchtap="openAddTese" data-url="add_tese/add_tese">
+                <image class="img" src="../image/cantin_add.png"></image>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{page_0_isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>  
+        <view class="noData" hidden="{{!page_0_isNoData}}">
+            <image src="../image/nodata-topic.png" mode="widthFix"></image>
+            <view>--暂无数据--</view>
+        </view>
+    </view>
+    <!-- 排行菜单对应页面 -->
+    <view class="page page-1" hidden="{{navKey != 1}}">
+        <view class="orderby-items">
+            <view class="orderby-item {{orderbyKey==0 && isSelected==true ? 'active' : ''}}" catchtap="orderbyTab" data-key="0">
+                <text>商圈</text>
+                <image src="{{orderbyKey==0 && isSelected==true ? '../image/down_active.png' : orderbyKey==0 && isSelected==false ? '../image/top.png' : '../image/down.png'}}" data-key="0" data-isactive="0"></image>
+            </view>
+            <view class="orderby-item {{orderbyKey==1 && isSelected==true ? 'active' : ''}}" catchtap="orderbyTab" data-key="1">
+                <text>菜系</text>
+                <image src="{{orderbyKey==1 && isSelected==true ? '../image/down_active.png' : orderbyKey==1 && isSelected==false ? '../image/top.png' : '../image/down.png'}}"></image>
+            </view>
+            <view class="orderby-item {{orderbyKey==2 && isSelected==true ? 'active' : ''}}" catchtap="orderbyTab" data-key="2">
+                <text>价格</text>
+                <image src="{{orderbyKey==2 && isSelected==true ? '../image/down_active.png' : orderbyKey==2 && isSelected==false ? '../image/top.png' : '../image/down.png'}}"></image>
+            </view>
+            <view class="orderby-item {{orderbyKey==3 && isSelected==true ? 'active' : ''}}" catchtap="orderbyTab" data-key="3">
+                <text>筛选</text>
+                <image src="{{orderbyKey==3 && isSelected==true ? '../image/shaixuan_active.png' : '../image/shaixuan.png'}}"></image>
+            </view>
+        </view>
+        <!-- 数据列表 -->
+        <view class='lists dataLists'>
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="restaurant_detail/restaurant_detail" data-id="0" data-title="餐厅详情">
+                        <image class="user-avatar" mode="widthFix" src="../image/shop_img.png"></image>
+                        <text class="user-name">雷记水盆羊肉</text>                        
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">234M</view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="list-middle-top">
+                        <view>
+                            <text>振兴路</text> <text>水盆羊肉</text> <text>微辣</text> <text>人均￥35</text>
+                        </view>
+                        <view>
+                            <text>312只馋猫推荐（含24好友）</text> <text>2019赞同（含4好友）</text> <text>87反对（含1好友）</text>
+                        </view>
+                        <view>
+                            <text>推荐水盆羊肉24次，麻婆豆腐29次</text>
+                        </view>
+                    </view>
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img5.png"></image>                       
+                    </view>
+                    <view class="list-title active">东邪西毒 <text>正在推荐</text></view>
+                    <text class="list-describe">专程去吃：舌尖3坑你不商量，吃水盆就是这里！剧组不知道收了多少推广费，不做功课，就把游（宰）客区的店铺极尽美言，还美其名曰3块肉...</text>
+                </view>                
+            </view>
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+            <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">正在加载</view>
+            </view>    
+        </view>
+    </view>
+    <!-- 最新菜单对应页面 -->
+    <view class="page page-2" hidden="{{navKey != 2}}">
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle" catchtap="openWin" data-url="article_detail/article_detail">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <text class="address">洒金桥</text>
+                    <text class="shop-name">刘鑫小炒泡馍</text>
+                    <text class="price">￥35.00</text>
+                    <text class="rating">322赞同</text>
+                </view>
+            </view>
+            <!-- 好餐馆榜单 -->
+            <view class="list bangdan">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">好餐馆榜单</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <!-- 好餐馆牛人榜 -->
+                        <image catchtap="openWin" data-url="niuren/niuren" mode="widthFix" src="../image/img2.png"></image>
+                        <!-- 好餐馆牛帖榜 -->
+                        <image catchtap="openWin" data-url="niutie/niutie" mode="widthFix" src="../image/img3.png"></image>
+                        <!-- 好餐馆好友帖 -->
+                        <image catchtap="openWin" data-url="haoyou/haoyou" mode="widthFix" src="../image/img3.png"></image>
+                    </view>                    
+                </view>                
+            </view>
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+
+            <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">70%</view>
+                    </view>
+                </view>                
+                <view class="list-middle" catchtap="openWin" data-url="article_detail/article_detail">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img2.png"></image>
+                        <image mode="widthFix" src="../image/img3.png"></image>
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    <view class="referees">好友@金三胖</view>
+                </view>
+                <view class="list-down">
+                    <text class="address">洒金桥</text>
+                    <text class="shop-name">刘鑫小炒泡馍</text>
+                    <text class="price">￥35.00</text>
+                    <text class="rating">322赞同</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+    <!-- 求助菜单对应页面 -->
+    <view class="page page-3" hidden="{{navKey != 3}}">
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name active">东邪西毒</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <view class="top-r-1">5</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle" catchtap="openWin" data-url="seekhelp_detail/seekhelp_detail">
+                    <!-- <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view> -->
+                    <text class="list-title">求推荐一个本地特色小吃的地方</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>100金币</text> <text>28推荐</text>
+                    </view>
+                    <view class="list-down-2">
+                        <view catchtap="openWin" data-url="seekhelp_huida/seekhelp_huida" data-id="0">
+                            <image src="../image/star.png"></image> <text>我推荐一个</text>
+                        </view>
+                        <view catchtap="openWin" data-url="../common/invite_cat_participate/invite_cat_participate">
+                            <image src="../image/mao.png"></image> <text>邀馋猫回答</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/avatar.png"></image>
+                        <text class="user-name active">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <!-- <view class="top-r-2">70%</view> -->
+                        <view class="top-r-3"><image src="../image/more.png"></image></view>
+                    </view>
+                </view>
+                <view class="list-middle" catchtap="openWin" data-url="seekhelp_detail/seekhelp_detail">
+                    <!-- <view class="imgs">
+                        <image mode="widthFix" src="../image/img.png"></image>                       
+                    </view> -->
+                    <text class="list-title">谁知道哪儿的水煎包最好吃？</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <view class="list-down-1">
+                        <text>100金币</text> <text>28推荐</text>
+                    </view>
+                    <view class="list-down-2">
+                        <view catchtap="openWin" data-url="seekhelp_huida/seekhelp_huida" data-id="0">
+                            <image src="../image/star.png"></image> <text>我推荐一个</text>
+                        </view>
+                        <view catchtap="openWin" data-url="../common/invite_cat_participate/invite_cat_participate">
+                            <image src="../image/mao.png"></image> <text>邀馋猫回答</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 优惠菜单对应页面 -->
+    <view class="page page-4" hidden="{{navKey != 4}}">
+        <view class="orderby-items">
+            <view class="orderby-item active">
+                <text>商圈</text><image src="../image/down_active.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>菜系</text><image src="../image/down.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>价格</text><image src="../image/down.png"></image>
+            </view>
+            <view class="orderby-item">
+                <text>筛选</text><image src="../image/shaixuan.png"></image>
+            </view>
+        </view>
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="restaurant_detail/restaurant_detail">
+                        <image class="user-avatar" mode="widthFix" src="../image/shop_img.png"></image>
+                        <text class="user-name">雷记水盆羊肉</text>                        
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">234M</view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="list-middle-top">
+                        <view>
+                            <text>振兴路</text> <text>水盆羊肉</text> <text>微辣</text> <text>人均￥35</text>
+                        </view>                        
+                    </view>
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img5.png"></image>                       
+                    </view>                    
+                    <view class="list-middle-down">
+                        <text class="zhekou active">消费满100元送20 元代金券  3.1折</text>
+                        <text>优惠：母亲节特惠，满XXX元减免xx元，仅限老人同行</text>
+                        <text>时间：2018年10月5日-2018年10月30日</text>
+                        <text>限量：总计500张，剩余118张</text>
+                    </view>
+                    <view class="referees">好友@金三胖、@东尼木木推荐了该餐厅</view>
+                </view> 
+                <view class="list-down">                
+                    <text>322 收藏</text>
+                    <text>26  转发</text>
+                </view>               
+            </view>
+
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+        </view>
+    </view>
+
+    <!-- 商圈排序菜单 -->
+    <view class="menu menu-shangquan" hidden="{{!isShowMenuShangquan}}">
+        <view class="menu-mask" catchtouchmove="hideMenu" catchtap="hideMenu"></view>
+        <scroll-view class='menu-left' scroll-y="true" scroll-with-animation="true" scroll-top="{{leftScrollTop}}">
+            <view class="menu-left-items">
+                <view class="menu-left-item active">附近</view>
+                <view class="menu-left-item">热门商区</view>
+                <view class="menu-left-item">雁塔区</view>
+                <view class="menu-left-item">小寨</view>
+                <view class="menu-left-item">钟楼</view>
+            </view>
+        </scroll-view>
+        <scroll-view class='menu-right' scroll-y="true" scroll-with-animation="true">
+            <view class="menu-right-items">
+                <view class="menu-right-item active">全部商区</view>
+                <view class="menu-right-item">科技路沿线</view>
+                <view class="menu-right-item">钟楼/鼓楼</view>
+                <view class="menu-right-item">大雁塔</view>
+                <view class="menu-right-item">长安路</view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 菜系排序菜单 -->
+    <view class="menu menu-caixi" hidden="{{!isShowMenuCaixi}}">
+        <view class="menu-mask" catchtouchmove="hideMenu" catchtap="hideMenu"></view>
+        <scroll-view class='menu-left' scroll-y="true" scroll-with-animation="true" scroll-top="{{leftScrollTop}}">
+            <view class="menu-left-items">
+                <view class="menu-left-item active">川菜</view>
+                <view class="menu-left-item">鲁菜</view>
+                <view class="menu-left-item">粤菜</view>
+                <view class="menu-left-item">浙菜</view>
+                <view class="menu-left-item">湘菜</view>
+            </view>
+        </scroll-view>
+        <scroll-view class='menu-right' scroll-y="true" scroll-with-animation="true">
+            <view class="menu-right-items">
+                <view class="menu-right-item active">全部</view>
+                <view class="menu-right-item">白切鸡</view>
+                <view class="menu-right-item">烧鹅</view>
+                <view class="menu-right-item">烤乳猪</view>
+                <view class="menu-right-item">烤乳鸽</view>
+            </view>
+        </scroll-view>
+    </view>
+    <!-- 价格排序菜单 -->
+    <view class="menu menu-jiage" hidden="{{!isShowMenuJiage}}">
+        <view class="menu-mask" catchtouchmove="hideMenu" catchtap="hideMenu"></view>
+        <scroll-view class='menu-right' scroll-y="true" scroll-with-animation="true" scroll-top="{{leftScrollTop}}">
+            <view class="menu-right-items">
+                <view class="menu-right-item active">50元以下</view>
+                <view class="menu-right-item">50-100元</view>
+                <view class="menu-right-item">100-200元</view>
+                <view class="menu-right-item">200元以上</view>
+                <view class="menu-right-item">500元以上</view>
+            </view>
+        </scroll-view>       
+    </view>
+    <!-- 筛选排序菜单 -->
+    <view class="menu menu-shaixuan" hidden="{{!isShowMenuShaixuan}}">
+        <view class="menu-mask" catchtouchmove="hideMenu" catchtap="hideMenu"></view>
+        <scroll-view class='menu-lists' scroll-y="true" scroll-with-animation="true" scroll-top="{{leftScrollTop}}">
+            <view class="menu-list">
+                <view class="menu-list-title">标签</view>
+                <view class="menu-list-items">
+                    <view class="menu-list-item active">海景</view>
+                    <view class="menu-list-item">小吃</view>
+                    <view class="menu-list-item">老板帅</view>
+                    <view class="menu-list-item">变态辣</view>
+                    <view class="menu-list-item">变态辣</view>
+                </view>
+            </view>
+            <view class="menu-list">
+                <view class="menu-list-title">提示</view>
+                <view class="menu-list-items">
+                    <view class="menu-list-item">海景</view>
+                    <view class="menu-list-item">小吃</view>
+                    <view class="menu-list-item">老板帅</view>
+                    <view class="menu-list-item">变态辣</view>
+                </view>
+            </view>
+            <view class="menu-list">
+                <view class="menu-list-title">推荐菜</view>
+                <view class="menu-list-items">
+                    <view class="menu-list-item">海景</view>
+                    <view class="menu-list-item">小吃</view>
+                    <view class="menu-list-item">老板帅</view>
+                    <view class="menu-list-item">变态辣</view>
+                </view>
+            </view>
+            <view class="menu-list">
+                <view class="menu-list-title">馋猫</view>
+                <view class="menu-list-items">
+                    <view class="menu-list-item">海景</view>
+                    <view class="menu-list-item">小吃</view>
+                    <view class="menu-list-item">老板帅</view>
+                    <view class="menu-list-item">变态辣</view>
+                </view>
+            </view>
+            <view class="menu-down-btns">
+                <view class="menu-down-btn reset-btn">重置</view>
+                <view class="menu-down-btn submit-btn">提交</view>
+            </view>
+        </scroll-view>       
+    </view>
+</view>

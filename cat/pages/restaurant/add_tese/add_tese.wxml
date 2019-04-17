@@ -1,0 +1,40 @@
+<!-- 添加本地特色 -->
+<view class="container">
+    <view class="page page-0">
+        <view class="input-item">
+            <input type="text" value="{{name}}" placeholder="名称"></input>
+        </view>
+        <!-- 文本编辑器 -->
+        <view class="editor-menu">
+            <!-- 输入文字内容+上传图片后显示区域 -->
+            <view class="textimg-itmes">
+                <view class="textimg-item" wx:if="{{ dataList[navKey].items[0]}}" wx:for="{{dataList[navKey].items}}" wx:key="{{item}}" wx:for-index="itemsindex">
+                    <view class="textarea-view" wx:if="{{item.value}}">
+                        <textarea value="{{item.value}}" auto-height="true" maxlength="-1" data-itemsindex="{{itemsindex}}" bindinput="editText"></textarea>
+                    </view>
+                    <view class="image-view" wx:if="{{item.images}}" wx:for="{{item.images}}" wx:for-item="img" wx:key="img" wx:for-index="imgindex" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="editImg">
+                        <image src="{{img}}" mode="widthFix"></image>
+                        <!-- 删除图片 -->
+                        <view class="delete-btn" data-imgindex="{{imgindex}}" data-itemsindex="{{itemsindex}}" catchtap="deleteImg"><image src="../../image/close_white.png" mode="widthFix"></image></view>
+                    </view>                        
+                </view>
+            </view>      
+            <!-- 文本编辑+上传图片区域 -->
+            <view class="editor-main">
+                <textarea name="" id="textarea" auto-height="true" maxlength="-1" placeholder="内容" bindinput="textareaChange" value="{{dataList[navKey].inputText}}"></textarea>
+                <view class="btns">
+                    <view class="btn record-btn"><image src="../../image/record.png" mode="widthFix"></image></view>  
+                    <view class="btn addimg-btn" catchtap="updateImage"><image src="../../image/addimg.png" mode="widthFix"></image></view>  
+                </view>                   
+            </view>
+        </view>
+        <view class="banner-menu">
+            <view class="banner-imgview" catchtap="uploadBannerImg" hidden="{{!dataList[navKey].bannerIsShow}}"><image src="{{dataList[navKey].banner}}" mode="widthFix"></image></view>
+            <view class="banner-imgadd" catchtap="uploadBannerImg" hidden="{{dataList[navKey].bannerIsShow}}"><image src="../../image/add_gray.png" mode="widthFix"></image></view>           
+            <view class="banner-tip">点击添加上传顶部图片</view>
+        </view>
+        <view class="down-btns">
+            <view class="submit orange-bg" catchtap="submit">确定</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,17 @@
+/* fileName: pages/messages/messages.wxss */
+@import '../../../public/style.wxss';
+
+.cui-header .cui-header-title{right: 90px; left: 90px;}
+.cui-header .cui-header-right{width: 90px; padding: 0 10px 0 0; text-align: right; line-height: 44px; font-size: 14px; color: #646464;}
+
+.list{margin: 0; padding: 15px; box-sizing: border-box;}
+.list::before{display: none;}
+.list::after{width: -webkit-calc(100% - 20px); width: calc(100% - 20px); left: 20px;}
+.list-top{padding: 0;}
+.user-name{text-indent: 0;}
+.user-name.active{color: #FF9204;}
+.list-top .status{line-height: 30px; font-size: 14px; color: #909090; margin: 0 0 0 5px; display: inline-block; vertical-align: middle;}
+.list-top .time{line-height: 30px; font-size: 14px; color: #909090; float: right;}
+.list-down{width: 100%; padding: 0;}
+.list-down .badge.small-badge.red{width: 7px; height: 7px; border-radius: 50%; display: inline-block; background: #FF0000; margin: 0 5px 0 0; vertical-align: middle;}
+.list-down text{line-height: 25px; font-size: 15px; color: #646464;}

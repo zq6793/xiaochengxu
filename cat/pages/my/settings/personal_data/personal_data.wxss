@@ -1,0 +1,22 @@
+/* fileName: pages/my/settings/personal_data/personal_data.wxss */
+@import '../../../../public/style.wxss';
+
+.container{padding: 20px; box-sizing: border-box;}
+.container view{margin: 0 0 20px 0;}
+input, textarea{width: 100%; background: #FFF; box-shadow: 0 0 1px rgba(150,150,150,.7); border-radius: 5px;}
+input{height: 50px; line-height: 50px; padding: 0 10px; box-sizing: border-box; font-size: 14px; color: #646464;}
+textarea{height: 100px; padding: 10px; box-sizing: border-box; font-size: 14px; color: #646464; line-height: 24px;}
+.washwell textarea{height: 50px; padding: 14px;}
+.radio-group .radio{margin: 0 20px 0 0; font-size: 15px; color: #646464;}
+/* radio未选中时样式 */
+radio .wx-radio-input{border-radius: 50%;height: 18px;width: 18px;margin-top: -5rpx;}
+
+/* 上传图片区域 */
+.container .pic-view{width: 100%; height: 120px; background: #FFF; border-radius: 5px; box-shadow: 0 0 1px rgba(150,150,150,.7); margin: 0 0 10px 0; position: relative;}
+.pic-img{width: 100%; height: 100%; overflow: hidden; border-radius: 5px; position: absolute; top: 0; left: 0;}
+.pic-img image{width: 100%; height: 100%; border-radius: 5px;}
+.pic-btn{width: 100%; height: 100%; margin: 0; text-align: center; border-radius: 5px; position: absolute; top: 0; left: 0;}
+.pic-btn image{width: 60px; height: 60px; margin: 30px auto;}
+
+.tip{width: 100%; line-height: 20px; font-size: 13px; color: #909090; text-align: center;}
+.submit{width: 100%; height: 44px; line-height: 44px; text-align: center; border-radius: 5px; background: #FF9204; color: #FFF; margin: 15px 0;}

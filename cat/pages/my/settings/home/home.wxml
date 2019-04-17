@@ -1,0 +1,25 @@
+<!-- 首页设置 -->
+<view class="container">
+    <view class="lists">
+        <view class="list">
+            <text>显示好友本地好餐馆的内容</text>
+            <switch checked="{{is_show_hcg}}" color="#FF9204" bindchange="changeHcg"/>
+        </view>
+        <view class="list">
+            <text>显示好友本地差餐馆的内容</text>
+            <switch class="tui-fr" checked="{{is_show_ccg}}" color="#FF9204" bindchange="changeCcg"/>
+        </view>
+        <view class="list">
+            <text>显示好友拿手菜的内容</text>
+            <switch class="tui-fr" checked="{{is_show_nsc}}" color="#FF9204" bindchange="changeNsc"/>
+        </view>
+        <view class="list">
+            <text>显示好友喵一喵的内容</text>
+            <switch class="tui-fr" checked="{{is_show_mym}}" color="#FF9204" bindchange="changeMym"/>
+        </view>
+        <view class="list">
+            <text>显示好友匠心淘的内容</text>
+            <switch class="tui-fr" checked="{{is_show_jxt}}" color="#FF9204" bindchange="changeJxt"/>
+        </view>
+    </view>
+</view>

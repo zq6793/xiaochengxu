@@ -1,0 +1,292 @@
+<!-- 收藏 -->
+<view class="container">
+    <!-- <view class='cui-header'>
+        <view class="cui-header-left header-back" bindtap="back"><image mode="widthFix" src="../../image/back-black.png"></image></view>
+        <view class='cui-header-title'>好友</view>
+    </view> -->
+    <view class="content">
+        <!-- 导航 -->
+        <view class="nav">
+            <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">好餐馆</view>
+            <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">拿手菜</view>
+            <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">喵一喵</view>
+            <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">优惠券</view>
+        </view>
+        <!-- 好餐馆 对应数据列表 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <!-- 数据列表 -->
+            <view class='lists dataLists'>
+                <view class="list"  wx:for="{{ haocanguanData}}" wx:key="{{item}}" wx:index="{{index}}" data-id="{{item.item.id}}">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail" data-id="{{item.belongs_to_member.id}}">
+                            <image class="user-avatar" mode="widthFix" src="{{item.item.restaurant_info. logo_image}}"></image>
+                            <text class="user-name">{{item.item.restaurant_name}}</text>                        
+                        </view>
+                       <view class="list-top-r-canguan">
+                            <view class="top-r-1">只取消帖子</view>
+                             <view class="top-r-2">取消</view>
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="list-middle-top">
+                            <view>
+                              <text>{{item.item.addr}}</text> <text>{{item.item.restaurant_info.restaurant_cooking.name}}</text> 
+                              <text>{{item.item.restaurant_info.restaurant_labels['2']}}</text> <text>人均￥{{item.item.restaurant_info.avg_price}}</text>
+                            </view>
+                            <view>
+                                <text>{{item.item.restaurant_recommend_count}}只馋猫推荐（含{{item.item.recommend_restaurant_count_of_friends}}好友）</text> <text>{{item.item.restaurant_like_count}}赞同（含{{item.item.restaurant_like_count_of_friends}}好友）</text> <text>{{item.item.restaurant_dislike_count}}反对（含{{item.item.restaurant_dislike_count_of_friends}}好友）</text>
+                            </view>
+                            <view>
+                                <text>推荐水盆羊肉24次，麻婆豆腐29次</text>
+                            </view>
+                        </view>
+                        <view class="imgs">
+                            <image mode="widthFix" src="{{item.item.post.image}}"></image>                       
+                        </view>
+                        <view class="list-title active">{{item.item.post.member_nickname}} <text>正在推荐</text></view>
+                        <text class="list-describe">{{item.item.post.title}}:{{item.item.post.recommend_desc}}</text>
+                    </view>                
+                </view>
+                <!-- 抽奖广告 -->
+                <view class="list guanggao">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo">
+                            <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                            <text class="user-name">抽奖广告</text>                        
+                        </view>                   
+                    </view>                
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img4.png"></image>
+                        </view>    
+                        <text class="list-title">食于自然</text>
+                        <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                    </view>                
+                </view>
+                <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                    <view class="weui-loading"></view>
+                    <view class="weui-loadmore__tips">正在加载</view>
+                </view>    
+            </view>
+        </view>
+          <!-- 拿手菜 -->
+    <view class="page page-1" hidden="{{navKey != 1}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list"  wx:for="{{nashoucaiData}}" wx:key="{{item}}" wx:index="{{index}}" data-id="{{item.item.id}}">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail" data-id="{{item.item.belongs_to_member.id}}">
+                        <image class="user-avatar" mode="widthFix" src="{{item.item.belongs_to_member.thumb	 ?item.item.belongs_to_member.thumb : '../image/avatar.png'}}"></image>
+                        <text class="user-name">{{item.item.belongs_to_member.nickname}}</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                       <view class="top-r-2">取消</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle" catchtap="openWin" data-url="../common/article_detail/article_detail">
+                    <view class="imgs">
+                        <image mode="widthFix"  src="{{item.item.image ? item.item.image : '../../image/img.png'}}"></image>                       
+                    </view>
+                    <text class="list-title">{{item.item.recommend_level_show_text}}:{{item.item.title}}</text>
+                    <text class="list-describe">{{item.item.recommend_desc}}</text>
+                </view>
+                <view class="list-down">
+                    <text>{{item.item.like_count}}赞赏</text>
+                    <text>{{item.item.collect_count}}收藏</text>
+                    <text>{{item.item.comment_num}}互动</text>
+                </view>
+            </view>
+
+            <!-- 拿手菜榜单 -->
+            <view class="list bangdan">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                        <text class="user-name">拿手菜榜单</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <!-- 拿手菜牛人榜 -->
+                        <image catchtap="openWin" data-url="niuren/niuren" mode="widthFix" src="../../image/img2.png"></image>
+                        <!-- 拿手菜牛帖榜 -->
+                        <image catchtap="openWin" data-url="niutie/niutie" mode="widthFix" src="../../image/img3.png"></image>
+                        <!-- 拿手菜好友帖 -->
+                        <image catchtap="openWin" data-url="haoyou/haoyou" mode="widthFix" src="../../image/img3.png"></image>
+                    </view>                    
+                </view>                
+            </view>
+
+        </view>
+        <view class="noData" hidden="{{!page_1_isNoData}}">
+            <image src="../image/nodata-topic.png" mode="widthFix"></image>
+            <view>--暂无分类数据--</view>
+        </view>
+        <view class="weui-loadmore" hidden="{{page_1_isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>  
+    </view>
+     <!-- 喵一喵 -->
+    <view class="page-2 page" hidden="{{navKey != 2}}">        
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list"  wx:for="{{miaoData}}" wx:key="{{item}}" wx:index="{{index}}" data-id="{{item.item.id}}">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../common/user_detail/user_detail" data-id="{{item.item.belongs_to_member.id}}">
+                        <image class="user-avatar" mode="widthFix" src="{{item.item.belongs_to_member.thumb	}}"></image>
+                        <text class="user-name">{{item.item.belongs_to_member.nickname}}</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                       <view class="top-r-2">取消</view>
+                        <!-- <view class="top-r-2">70%</view> -->
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img.png"></image>                       
+                    </view>
+                    <text class="list-title">{{item.item.title}}</text>
+                    <text class="list-describe">{{item.item.recommend_desc}}</text>
+                </view>
+                <view class="list-down">
+                    <text>{{item.item.like_count}}喜欢</text>
+                    <text>{{item.item.comment_num}}互动</text>
+                </view>
+            </view>
+            <!-- 好餐馆榜单 -->
+            <view class="list bangdan">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                        <text class="user-name">好餐馆榜单</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img2.png"></image>
+                        <image mode="widthFix" src="../../image/img3.png"></image>
+                        <image mode="widthFix" src="../../image/img3.png"></image>
+                    </view>                    
+                </view>                
+            </view>
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+
+            <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail" data-id="{{item.item.belongs_to_member.id}}">
+                        <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                        <text class="user-name">封號→消失</text>
+                        <view class="user-level">
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        </view>
+                    </view>
+                    <view class="list-top-r">
+                       <!-- <view class="top-r-2">只取消帖子</view> -->
+                        <view class="top-r-2">取消</view>
+                    </view>
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img2.png"></image>
+                        <image mode="widthFix" src="../../image/img3.png"></image>
+                    </view>
+                    <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                    <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                </view>
+                <view class="list-down">
+                    <text>129喜欢</text>
+                    <text>228互动</text>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>    
+    </view>
+        <!-- 优惠劵 -->
+    <view class="page page-3" hidden="{{navKey != 3}}">
+        <!-- 数据列表 -->
+        <view class="lists dataLists">
+            <view class="list"  wx:for="{{youhuiData}}" wx:key="{{item}}" wx:index="{{index}}" data-id="{{item.item.id}}">
+                <view class="list-top">
+                    <view class="list-top-l userinfo" catchtap="openWin" data-url="../../common/user_detail/user_detail" data-id="{{item.belongs_to_member.id}}">
+                        <image class="user-avatar" mode="widthFix" src="{{item.item.restaurant_info. logo_image}}"></image>
+                        <text class="user-name">{{item.item.restaurant_info.restaurant_name}}</text>                        
+                    </view>
+                    <view class="list-top-r">
+                        <!-- <view class="top-r-1">5</view> -->
+                        <view class="top-r-2">取消</view>
+                    </view>
+                </view>
+                <view class="list-middle">
+                    <view class="list-middle-top">
+                        <view>
+                            <text>{{item.item.addr}}</text> <text>{{item.item.restaurant_info. restaurant_cooking.name}}</text> <text>{{item.item.restaurant_info.restaurant_labels['2']}}</text> <text>人均￥{{item.item.restaurant_info.avg_price}}</text>
+                        </view>                        
+                    </view>
+                    <view class="imgs">
+                        <image mode="widthFix" src="{{item.item.image}}"></image>                       
+                    </view>                    
+                    <view class="list-middle-down">
+                        <text class="zhekou active">消费满100元送20 元代金券  3.1折</text>
+                        <text>优惠：母亲节特惠，满XXX元减免xx元，仅限老人同行</text>
+                        <text>时间：{{item.item.start_time}}-{{item.item.end_time}}</text>
+                        <text>限量：总计{{item.item.all_count}}张，剩余{{item.item.available_count}}张</text>
+                    </view>
+                    <view class="referees">好友<text wx:for="{{item.item.recommend_friends_list}}" wx:key="{{item}}" wx:index="{{index}}">@{{item.name}}</text>推荐了该餐厅</view>
+                </view> 
+                <view class="list-down">                
+                    <text>{{item.item.collect_count}} 收藏</text>
+                    <text>{{item.item.repost_count}}  转发</text>
+                </view>               
+            </view>
+
+            <!-- 抽奖广告 -->
+            <view class="list guanggao">
+                <view class="list-top">
+                    <view class="list-top-l userinfo">
+                        <image class="user-avatar" mode="widthFix" src="../../image/logo.png"></image>
+                        <text class="user-name">抽奖广告</text>                        
+                    </view>                   
+                </view>                
+                <view class="list-middle">
+                    <view class="imgs">
+                        <image mode="widthFix" src="../../image/img4.png"></image>
+                    </view>    
+                    <text class="list-title">食于自然</text>
+                    <text class="list-describe">秋季新品绚丽上市，每一滴都来自静静地守候</text>                
+                </view>                
+            </view>
+        </view>
+    </view>
+    </view>
+</view>

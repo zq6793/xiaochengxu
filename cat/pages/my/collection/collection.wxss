@@ -1,0 +1,46 @@
+/* fileName: pages/restaurant/restaurant.wxss */
+@import '../../../public/style.wxss';
+
+
+.nav{height: 44px; display: flex; justify-content: space-around; top: 0;}
+.nav .nav-item{line-height: 44px; padding: 0 10px;}
+.nav .nav-item.active::after{width: -webkit-calc(100% - 10px); width: calc(100% - 10px); left: 5px;}
+
+.page{width: 100%; padding-top: 0px;}
+.list-top-r {width:42px;height:22px;text-align:right;display:inline-block;vertical-align:middle;border:1px solid #909090;
+line-height:22px;border-radius: 5px;}
+.list-top-r .top-r-2{ height:100%;line-height:22px;font-size:13px;color:#909090;text-align:center;}
+.list-top-r-canguan{width:113px;height:22px;text-align:right;display:inline-block;vertical-align:middle;}
+.list-top-r-canguan .top-r-2{width: 35px;height: 22px;line-height: 22px;border:1px solid #909090;border-radius: 5px;text-align:center;
+font-size:13px;color:#909090;float: right;}
+.list-top-r-canguan .top-r-1{width: 74px;height: 22px;line-height: 22px;border:1px solid #909090;border-radius: 5px;text-align:center;
+background: transparent;margin: 0;color: #909090;font-size:13px;float: right;}
+.list-top-canguan{width:-webkit-calc(100% - 113px);width:calc(100% - 113px);display:inline-block;vertical-align:middle;}
+/* 好餐馆 */
+.page-0{padding-top: 0;}
+.page-0 .list-top{padding-bottom: 0px;}
+.page-0 .list-middle{padding-bottom: 12px;}
+.page-0 .list-middle-top{width: 100%;}
+.page-0 .list-middle-top view{width: 100%; margin-bottom: 5px;}
+.page-0 .list-middle-top view text{line-height: 25px; font-size: 14px; color: #909090; margin: 0 10px 0 0; display: inline-block; vertical-align: middle;}
+.page-0 .list-middle .list-title{line-height: 25px;}
+.page-0 .list-middle .list-title text{line-height: 25px; font-size: 16px; color: #909090; margin: 0 0 0 5px; display: inline-block; vertical-align: top;}
+.page-0 .list-middle .list-title.active{color: #FF9204;}
+.page-0 .guanggao.list .list-top,.page-1 .bangdan.list .list-top{padding-bottom: 10px;}
+/* 拿手菜 */
+.page-1 .list-down text{line-height: 25px; font-size: 15px; color: #7B7B7B; margin: 0 20px 0 0;}
+/* 喵一喵 */
+.page-2 .list-down text{line-height: 20px; font-size: 15px; color: #7B7B7B; margin: 0 20px 0 0;}
+.page-2 .list-middle image{max-height: 50vw;}
+/* 优惠劵 */
+.page-3 .list-top{padding-bottom: 0px;}
+.page-3 .list-middle{padding-bottom: 12px;}
+.page-3 .list-middle-top{width: 100%;}
+.page-3 .list-middle-top view{width: 100%; margin-bottom: 5px;}
+.page-3 .list-middle-top view text{line-height: 25px; font-size: 14px; color: #909090; margin: 0 10px 0 0; display: inline-block; vertical-align: middle;}
+.page-3 .list-middle-down{width: 100%;}
+.page-3 .list-middle-down text{width: 100%; display: block; line-height: 25px; font-size: 15px; color: #7B7B7B;}
+.page-3 .list-middle-down .zhekou{margin: 10px 0; color: #FF9204; font-size: 16px;}
+.page-3 .referees{margin: 10px 0 0 0;}
+.page-3 .list-down text{line-height: 25px; font-size: 15px; color: #7B7B7B; margin: 0 20px 0 0;}
+.page-3 .guanggao.list .list-top,.page-3 .bangdan.list .list-top{padding-bottom: 10px;}

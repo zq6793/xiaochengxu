@@ -1,0 +1,13 @@
+/* fileName: pages/edit_recommend/edit_recommend.wxss */
+@import '../../../public/style.wxss';
+
+
+.nav{height: 44px; top: 0;}
+
+.page{width: 100%; padding-top: 0px;}
+
+.list-top-l{width: -webkit-calc(100% - 80px); width: calc(100% - 80px);}
+
+.list-top-r{width: 80px; font-size: 0;}
+.list-top-r .top-r-btn{width: 40px; height: 44px; display: inline-block; vertical-align: middle;}
+.list-top-r .top-r-btn image{width: 16px; height: 16px; margin: 14px 0px 14px 20px;}

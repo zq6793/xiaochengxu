@@ -1,0 +1,9 @@
+/*  pages/restaurant/seekhelp_detail/seekhelp_detail.wxss */
+@import '../../../public/style.wxss';
+
+.lists .list:first-child .list-down-1{width: 100%;}
+.lists .list:first-child .list-down-1 text{line-height: 30px; font-size: 15px; margin-right: 20px;  color: #7B7B7B;}
+.lists .list:first-child .list-down-2{width: 100%;}
+.lists .list:first-child .list-down-2 view{height: 30px; line-height: 30px; display: inline-block; margin-right: 20px; vertical-align: middle;}
+.lists .list:first-child .list-down-2 view image{width: 17px; height: 17px; margin: 0 5px 0 0; display: inline-block; vertical-align: middle;}
+.lists .list:first-child .list-down-2 view text{line-height: 30px; font-size: 15px; color: #909090;}

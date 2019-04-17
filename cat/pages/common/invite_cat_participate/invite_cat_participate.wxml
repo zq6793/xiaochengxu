@@ -1,0 +1,179 @@
+<!--pages/common/invite_cat_participate/invite_cat_participate.wxml-->
+<!-- 邀馋猫回答 -->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">       
+        <view class="header-r">
+            <view class="search">
+                <image class="search-img" src="../../image/search.png"></image>
+                <input class="search-input"  type="text" focus='true' confirm-type="search" value="{{searchValue}}" placeholder="搜索" bindinput="searchInput"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>
+            <view class="search-btn" style="display: {{display}};">搜索</view>  
+        </view>          
+    </view>
+    <!-- 检索列表 -->
+    <view class="search-lists" id="lists">
+        <!-- 推荐 -->
+        <view class="search-list">
+            <view class="list-title">推荐 <view class="more-btn">更多</view></view>
+            <view class="list-items">
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 好友 -->
+        <view class="search-list">
+            <view class="list-title">好友 <view class="more-btn">更多</view></view>
+            <view class="list-items">
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 粉丝 -->
+        <view class="search-list">
+            <view class="list-title">粉丝 <view class="more-btn">更多</view></view>
+            <view class="list-items">
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+                <view class="list-item">
+                    <view class="list-item-left"><image src="../../image/avatar.png" mode='widthFix'></image></view>
+                    <view class="list-item-right">
+                        <view class="list-item-right-top">
+                            <text class="user-name">馋小猫</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                            <view class="choose-btn">
+                                <checkbox-group class="radio-group" bindchange="chooseChange">
+                                    <label class="checkbox">
+                                        <checkbox class="ws-checkbox" value="" color="#FF9204"/>
+                                    </label>
+                                </checkbox-group>
+                            </view>
+                        </view>
+                        <view class="list-item-right-down">
+                            <text>西安</text> <text>喵是铁，粮是钢，一秒不吃饿得慌</text>
+                            <text>推荐8个餐馆、12个拿手菜，助猫为乐4次，获得12次赞</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+    <view class="down-btns">
+        <view class="invite-btn orange-bg" catchtap="submit">邀请回答</view>
+        <view class="reset-btn">重置</view>
+    </view>
+</view>

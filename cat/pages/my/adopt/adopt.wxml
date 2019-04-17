@@ -1,0 +1,81 @@
+<!-- 采纳好推荐 -->
+<view class="container">
+    <view class="lists dataLists">
+        <view class="list">
+            <view class="list-top">
+                <view class="list-top-l userinfo">
+                    <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                    <text class="user-name">封號→消失</text>
+                    <view class="user-level">
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                    </view>
+                </view>
+                <view class="list-top-r">
+                    <view class="top-r-1">5</view>
+                    <!-- <view class="top-r-2">70%</view> -->
+                </view>
+            </view>
+            <view class="list-middle" catchtap="openWin" data-url="adopt_detail/adopt_detail">
+                <!-- <view class="imgs">
+                    <image mode="widthFix" src="../../image/img.png"></image>                       
+                </view> -->
+                <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+            </view>
+            <view class="list-down">
+                <view class="list-down-1">
+                    <text>100金币</text> <text>28推荐</text>
+                </view>
+                <view class="list-down-2">
+                    <view catchtap="openWin" data-url="../helpforhappy/helpforhappy">
+                        <image src="../../image/star.png"></image> <text>我推荐一个</text>
+                    </view>
+                    <view>
+                        <image src="../../image/mao.png"></image> <text>邀馋猫回答</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="list">
+            <view class="list-top">
+                <view class="list-top-l userinfo">
+                    <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                    <text class="user-name active">封號→消失</text>
+                    <view class="user-level">
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao.png"></image>
+                    </view>
+                </view>
+                <view class="list-top-r">
+                    <!-- <view class="top-r-1">5</view> -->
+                    <!-- <view class="top-r-2">70%</view> -->
+                    <view class="top-r-3"><image src="../../image/more.png"></image></view>
+                </view>
+            </view>
+            <view class="list-middle" catchtap="openWin" data-url="adopt_detail/adopt_detail">
+                <!-- <view class="imgs">
+                    <image mode="widthFix" src="../../image/img.png"></image>                       
+                </view> -->
+                <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+            </view>
+            <view class="list-down">
+                <view class="list-down-1">
+                    <text>100金币</text> <text>28推荐</text>
+                </view>
+                <view class="list-down-2">
+                    <view>
+                        <image src="../../image/star.png"></image> <text>我推荐一个</text>
+                    </view>
+                    <view>
+                        <image src="../../image/mao.png"></image> <text>邀馋猫回答</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

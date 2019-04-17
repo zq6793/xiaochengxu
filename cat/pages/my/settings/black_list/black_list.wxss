@@ -1,0 +1,18 @@
+/* fileName: pages/my/settings/black_list/black_list.wxss */
+@import '../../../../public/style.wxss';
+
+.lists{width: 100%;}
+
+.list{padding: 10px 15px; font-size: 0; margin: 0; box-sizing: border-box;}
+.list::before{display: none;}
+.list::after{width: -webkit-calc(100% - 15px); width: calc(100% - 15px); left: 15px;}
+.list-left{width: 50px; display: inline-block; vertical-align: top;}
+.list-left image{width: 40px; height: 40px; border-radius: 50%;}
+.list-right{width: -webkit-calc(100% - 50px); width: calc(1005 - 50px); padding: 5px 0 0 0; display: inline-block; vertical-align: top;}
+.user-name{text-indent: 0;}
+.user-level image{top: 6px;}
+.delete{width: 44px; height: 44px; text-align: center; position: absolute; top: 25px; right: 0;}
+.delete image{width: 16px; height: 16px;}
+.info{width: 100%; margin: 10px 0 0 0;}
+.info view{width: 100%; line-height: 22px; margin: 0 0 0px 0; font-size: 14px; color: #7B7B7B;}
+.info view text{font-size: 16px; margin: 0 5px 0 5px; color: #7B7B7B;}

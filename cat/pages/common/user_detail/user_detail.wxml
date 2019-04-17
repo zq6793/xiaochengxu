@@ -1,0 +1,132 @@
+<!--pages/common/user_detail/user_detail.wxml-->
+<!-- 个人主页 -->
+<view class="container">
+    <view class="content">
+        <view class="content-top">
+            <view class="content-top-bg"><image src='../../image/img6.png' mode='widthFix'></image></view>
+            <view class="user-infos">
+                <view class="nameaddlevel">
+                    <text class="user-name">封號→消失</text>
+                    <view class="user-level">
+                        <image mode="widthFix" src="../../image/maozhao_white.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao_white.png"></image>
+                        <image mode="widthFix" src="../../image/maozhao_white.png"></image>
+                    </view>
+                </view>
+                <view class="user-avatar" mode='widthFix'><image src="../../image/avatar.png"></image></view>                
+            </view> 
+            <view class="qianming">饿了就吃，困了就睡</view>         
+        </view>
+        <view class="content-middle">
+            <view class="content-middle-top">
+                <view class="content-middle-top-lists">
+                    <view class="content-middle-top-list">
+                        <image src="../../image/guanzhu.png"></image>
+                        <text>加关注</text>
+                    </view>                    
+                    <view class="content-middle-top-list">
+                        <image src="../../image/xianhua.png"></image>
+                        <text>送鲜花</text>
+                    </view>
+                </view>
+                <view class="content-middle-top-items">
+                    <view class="content-middle-top-item">
+                        好友 <text>12</text>
+                    </view>
+                    <view class="content-middle-top-item">
+                        粉丝 <text>4276</text>
+                    </view>
+                    <view class="content-middle-top-item">
+                        鲜花 <text>54</text>
+                    </view>
+                    <view class="content-middle-top-item">
+                       <text>70%</text>
+                    </view>
+                </view>
+            </view>
+            <view class="content-middle-down">
+                <view class="content-middle-down-items">
+                    <view class="content-middle-down-item">全部 <text>1232</text></view>
+                    <view class="content-middle-down-item">好餐馆 <text>42</text></view>
+                    <view class="content-middle-down-item">拿手菜 <text>8</text></view>
+                    <view class="content-middle-down-item">喵一喵 <text>56</text></view>                   
+                </view>
+                <view class="content-middle-down-items">
+                    <view class="content-middle-down-item">求助 <text>3</text></view>
+                    <view class="content-middle-down-item">玩儿 <text>32</text></view>
+                    <view class="content-middle-down-item">匠心淘 <text>1</text></view>
+                    <view class="content-middle-down-item">差餐馆 <text>0</text></view>
+                </view>
+            </view>
+        </view>
+        <view class="content-down">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-top">
+                        <view class="list-top-l userinfo">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <view class="top-r-1">5</view>
+                            <!-- <view class="top-r-2">70%</view> -->
+                        </view>
+                    </view>
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img.png"></image>                       
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating"><text class="active">322</text> 赞同</text>
+                    </view>
+                </view>
+                <view class="list twoimgs"><!-- "twoimgs"用于设置有2张图片的布局 -->
+                    <view class="list-top">
+                        <view class="list-top-l userinfo">
+                            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-top-r">
+                            <!-- <view class="top-r-1">5</view> -->
+                            <view class="top-r-2">70%</view>
+                        </view>
+                    </view>                
+                    <view class="list-middle">
+                        <view class="imgs">
+                            <image mode="widthFix" src="../../image/img2.png"></image>
+                            <image mode="widthFix" src="../../image/img3.png"></image>
+                        </view>
+                        <text class="list-title">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</text>
+                        <text class="list-describe">花了很多心思装修的店，风格偏日式，独立的花园，整个空间都是花花草草，正如店名一样，花里，满眼搭配原木色非常适合吃个小饭喝个小茶。</text>
+                    </view>
+                    <view class="list-down">
+                        <text class="address">洒金桥</text>
+                        <text class="shop-name">刘鑫小炒泡馍</text>
+                        <text class="price">￥35.00</text>
+                        <text class="rating"><text class="active">322</text> 赞同</text>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+                <view class="weui-loading"></view>
+                <view class="weui-loadmore__tips">正在加载</view>
+            </view> 
+        </view>
+    </view>
+</view>

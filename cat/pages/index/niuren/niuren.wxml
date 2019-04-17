@@ -1,0 +1,163 @@
+<!--pages/index/niutie/niutie.wxml-->
+<!-- 首页“牛人”菜单页 -->
+<view class="container">
+    <view class="content">
+        <!-- 导航 -->
+        <view class="nav">
+            <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">粉丝大神</view>
+            <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">鲜花大神</view>
+            <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">活动大神</view>
+            <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">热心大神</view>
+        </view>
+        <!-- 粉丝大神对应页面 -->
+        <view class="page page-0" hidden="{{navKey != 0}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-left">
+                        <image src="../../image/avatar.png" mode="widthFix"></image>
+                        <text class="badge">1</text>
+                    </view>
+                    <view class="list-right">
+                        <view class="list-right-top">
+                            <view class="list-right-top-l userinfo">
+                                <text class="user-name active">馋小猫</text>
+                                <view class="user-level">
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                </view>
+                            </view>
+                            <view class="list-right-top-r">
+                                <view class="qxgz-btn">加关注</view>
+                            </view>
+                        </view>
+                        <view class="list-down">
+                            <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                            <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="list">
+                    <view class="list-left">
+                        <image src="../../image/avatar.png" mode="widthFix"></image>
+                        <text class="badge">2</text>
+                    </view>
+                    <view class="list-right">
+                        <view class="list-right-top">
+                            <view class="list-right-top-l userinfo">
+                                <text class="user-name active">馋小猫</text>
+                                <view class="user-level">
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                </view>
+                            </view>
+                            <view class="list-right-top-r">
+                                <view class="qxgz-btn">送鲜花</view>
+                            </view>
+                        </view>
+                        <view class="list-down">
+                            <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                            <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 鲜花大神对应页面 -->
+        <view class="page page-1" hidden="{{navKey != 1}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-left">
+                        <image src="../../image/avatar.png" mode="widthFix"></image>
+                        <text class="badge">1</text>
+                    </view>
+                    <view class="list-right">
+                        <view class="list-right-top">
+                            <view class="list-right-top-l userinfo">
+                                <text class="user-name active">馋小猫</text>
+                                <view class="user-level">
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                </view>
+                            </view>
+                            <view class="list-right-top-r">
+                                <view class="qxgz-btn">送鲜花</view>
+                            </view>
+                        </view>
+                        <view class="list-down">
+                            <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                            <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        </view>
+                    </view>
+                </view>                
+            </view>
+        </view>
+        <!-- 活动大神对应页面 -->
+        <view class="page page-2" hidden="{{navKey != 2}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+                <view class="list">
+                    <view class="list-left">
+                        <image src="../../image/avatar.png" mode="widthFix"></image>
+                        <text class="badge">1</text>
+                    </view>
+                    <view class="list-right">
+                        <view class="list-right-top">
+                            <view class="list-right-top-l userinfo">
+                                <text class="user-name active">封號→消失</text>
+                                <view class="user-level">
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                </view>
+                            </view>
+                            <view class="list-right-top-r">
+                                <view class="qxgz-btn">加关注</view>
+                            </view>
+                        </view>
+                        <view class="list-down">
+                            <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                            <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        </view>
+                    </view>
+                </view> 
+                <view class="list">
+                    <view class="list-left">
+                        <image src="../../image/avatar.png" mode="widthFix"></image>
+                        <text class="badge">2</text>
+                    </view>
+                    <view class="list-right">
+                        <view class="list-right-top">
+                            <view class="list-right-top-l userinfo">
+                                <text class="user-name active">馋小猫</text>
+                                <view class="user-level">
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                    <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                </view>
+                            </view>
+                            <view class="list-right-top-r">
+                                <view class="qxgz-btn">加关注</view>
+                            </view>
+                        </view>
+                        <view class="list-down">
+                            <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                            <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        </view>
+                    </view>
+                </view>               
+            </view>
+        </view>
+        <!-- 热心大神对应页面 -->
+        <view class="page page-3" hidden="{{navKey != 3}}">
+            <!-- 数据列表 -->
+            <view class="lists dataLists">
+
+            </view>
+        </view> 
+    </view>
+</view>

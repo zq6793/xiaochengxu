@@ -1,0 +1,49 @@
+<!--pages/common/address/address.wxml-->
+<!-- 首页地址选择页面 -->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">       
+        <view class="header-r">
+            <view class="search">
+                <image class="search-img" src="../../image/search.png"></image>
+                <input class="search-input"  type="text"  confirm-type="search" value="{{searchValue}}" placeholder="输入城市名或拼音查询" bindinput="searchInput"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>  
+        </view>          
+    </view>
+    <!-- 菜单导航 -->
+    <view class="nav">
+        <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">国内</view>
+        <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1" bindtap="navTab">国际/港澳台</view>
+    </view>
+    <!-- 国内 -->
+    <view class="page page-0" hidden="{{navKey != 0}}">
+        <SelectCitiesView bind:citySelect='onCitySelect' letter-class='cityListLetter' item-class='cityListItem'></SelectCitiesView>
+    </view>
+    <!-- 国际/港澳台 -->
+    <view class="page page-1" hidden="{{navKey != 1}}">
+        <!-- 左侧菜单 -->
+        <scroll-view class='scroll-left' scroll-y="true" scroll-with-animation="true" scroll-top="{{leftScrollTop}}">
+            <view class="left-lists">
+                <view class="left-list {{leftKey==0 ? 'active' : ''}}" data-key="0" bindtap="leftClick">推荐</view>
+                <view class="left-list {{leftKey==1 ? 'active' : ''}}" data-key="1" bindtap="leftClick">港澳台</view>
+                <view class="left-list {{leftKey==2 ? 'active' : ''}}" data-key="2" bindtap="leftClick">亚洲</view>
+                <view class="left-list {{leftKey==3 ? 'active' : ''}}" data-key="3" bindtap="leftClick">欧洲</view>
+                
+
+                <view class="left-list {{leftKey==4 ? 'active' : ''}}" data-key="4" bindtap="leftClick">北美洲</view>
+                <view class="left-list {{leftKey==5 ? 'active' : ''}}" data-key="5" bindtap="leftClick">南美洲</view>
+                <view class="left-list {{leftKey==6 ? 'active' : ''}}" data-key="6" bindtap="leftClick">大洋洲</view>
+                <view class="left-list {{leftKey==7 ? 'active' : ''}}" data-key="7" bindtap="leftClick">非洲</view>                
+            </view>
+        </scroll-view>
+        <!-- 右侧对应页面 -->
+        <scroll-view class='scroll-right' scroll-y="true" scroll-with-animation="true">
+            <view class="right-lists">
+                <view class="right-list">
+                    <text>猪里脊</text>
+                </view>                
+            </view>
+        </scroll-view>
+    </view>
+</view>

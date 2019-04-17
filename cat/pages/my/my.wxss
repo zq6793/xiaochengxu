@@ -1,0 +1,36 @@
+/* fileName: pages/my/my.wxss */
+@import '../../public/style.wxss';
+/* 头部 */
+/* .cui-header{width: 100%; height: 44px; background: #FF9204;}
+.cui-header .cui-header-title{height: 100%; line-height: 44px; text-align: center; font-size: 17px; color: #FFF; position: absolute; top: 0; left: 44px; right: 44px;}
+.cui-header::after{display: none;} */
+
+.content{width: 100%; padding: 0px 0 0 0;}
+.content-top{width: 100%; padding: 15px 0; background: #FF9204; font-size: 0; position: relative; margin: 0 0 10px 0;}
+.content-top-bg{width: 100%; height: 160px; position: absolute; left: 0; bottom: 0; z-index: 0;}
+.content-top-left{width: 90px; display: inline-block; vertical-align: top; position: relative; z-index: 1;}
+.content-top-left image{width: 60px; height: 60px; border-radius: 50%; margin: 0 15px 15px;}
+.content-top-right{width: -webkit-calc(100% - 90px); width: calc(100% - 90px); display: inline-block; vertical-align: top; position: relative; z-index: 1;}
+
+.content-top-right .icon-right{width: 30px; height: 30px; display: inline-block; vertical-align: top; position: absolute; top: 0px; right: 0;}
+.content-top-right .icon-right image{width: 20px; height: 20px; margin: 5px;}
+.user-name{color: #FFF; font-size: 16px; text-indent: 0px;}
+.user-level image{top: 0px;}
+.content-top-right .jifen,.content-top-right .xianhua{line-height: 20px; margin: 0 20px 0 0; font-size: 14px; color: #FFF; display: inline-block; vertical-align: middle;}
+.content-top-right .jifen text,.content-top-right .xianhua text{line-height: 20px; display: inline-block; font-size: 16px; color: #FFDA01;  margin: 0 0 0 5px; vertical-align: top;}
+.content-top-right-view2{width: 100%; margin: 5px 0 0 0; padding: 0 10px 0 0; box-sizing: border-box;}
+.content-top-right-view2 text{width: 100%; line-height: 22px; display: block; font-size: 13px; color: rgba(255,255,255,.9);}
+
+
+
+.content-down{width: 100%; margin: 10px 0;}
+.my-lists{width: 100%; background: #FFF; font-size: 0; position: relative;}
+.my-lists::before{content: ''; width: 100%; height: 1px; -webkit-transform: scaleY(.3); transform: scaleY(.3); background: rgba(100,100,100,.3); position: absolute; top: 0; left: 0; z-index: 1;}
+.my-list{width: 33.33%; height: 95px; padding: 15px; box-sizing: border-box; display: inline-block; text-align: center; position: relative; vertical-align: top;}
+.my-list::after{content: ''; width: 100%; height: 1px; -webkit-transform: scaleY(.3); transform: scaleY(.3); background: rgba(100,100,100,.3); position: absolute; bottom: 0; left: 0; z-index: 1;}
+.my-list image{width: 26px; height: 26px; display: inline-block; margin: 5px auto 5px auto;}
+.my-list text{width: 100%; line-height: 25px; font-size: 13px; color: #444; display: inline-block;}
+
+.signout-btn{width: -webkit-calc(1005 - 30px); width: calc(1005 - 30px); height: 44px; line-height: 43px; text-align: center; background: #FFF; border-radius: 5px; box-shadow: 0 0 1px rgba(100,100,100,.4); color: #333; font-size: 18px; margin: 30px 15px;}
+
+.my-list .badge{width: auto; min-width: 18px; height: 18px; line-height: 16px; box-sizing: border-box; padding: 0 5px; display: inline-block; border-radius: 20px; background: #FF9204; color: #FFF; font-size: 12px; position: absolute; top: 15px; right: -webkit-calc((100% - 40px) / 2); right: calc((100% - 40px) / 2);}

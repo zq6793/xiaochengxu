@@ -1,0 +1,83 @@
+/* fileName: pages/restaurant/restaurant.wxss */
+@import '../../public/style.wxss';
+
+.nav{display: flex; justify-content: space-around;}
+.nav .nav-item{padding: 0 10px;}
+.nav .nav-item.active::after{width: -webkit-calc(100% - 10px); width: calc(100% - 10px); left: 5px;}
+
+.page{width: 100%; padding-top: 83px; position: relative;}
+
+/* 特色 */
+.page-0{min-height: -webkit-calc(100vh - 84px); background: #FFF;}
+.page-0 .lists{width: 100%; padding: 20px 10px; box-sizing: border-box; font-size: 0;}
+.page-0 .lists .list{width: -webkit-calc((100% - 40px) / 4); width: calc((100% - 40px) / 4); margin: 0 5px 10px 5px; text-align: center; display: inline-block; vertical-align: top;}
+.page-0 .lists .list::before,.page-0 .lists .list::after{display: none;}
+.page-0 .lists .list image{width: 50px; height: 50px; border-radius: 50%; margin-bottom: 0px;}
+.page-0 .lists .list text{width: 100%; line-height: 25px; display: inline-block; font-size: 13px; color: #646464;}
+/* 排行 */
+.page-1{padding-top: 123px;}
+.page-1 .list-top{padding-bottom: 0px;}
+.page-1 .list-middle{padding-bottom: 12px;}
+.page-1 .list-middle-top{width: 100%;}
+.page-1 .list-middle-top view{width: 100%; margin-bottom: 5px;}
+.page-1 .list-middle-top view text{line-height: 25px; font-size: 14px; color: #909090; margin: 0 10px 0 0; display: inline-block; vertical-align: middle;}
+.page-1 .list-middle .list-title{line-height: 25px;}
+.page-1 .list-middle .list-title text{line-height: 25px; font-size: 16px; color: #909090; margin: 0 0 0 5px; display: inline-block; vertical-align: top;}
+.page-1 .list-middle .list-title.active{color: #FF9204;}
+.page-1 .guanggao.list .list-top,.page-1 .bangdan.list .list-top{padding-bottom: 10px;}
+
+
+/* 求助 */
+.page-3 .list-down-1{width: 100%;}
+.page-3 .list-down-1 text{line-height: 30px; font-size: 15px; margin-right: 20px;  color: #7B7B7B;}
+.page-3 .list-down-2{width: 100%;}
+.page-3 .list-down-2 view{height: 30px; line-height: 30px; display: inline-block; margin-right: 20px; vertical-align: middle;}
+.page-3 .list-down-2 view image{width: 17px; height: 17px; margin: 0 5px 0 0; display: inline-block; vertical-align: middle;}
+.page-3 .list-down-2 view text{line-height: 30px; font-size: 15px; color: #909090;}
+
+/* 优惠 */
+.page-4{padding-top: 123px;}
+.page-4 .list-top{padding-bottom: 0px;}
+.page-4 .list-middle{padding-bottom: 12px;}
+.page-4 .list-middle-top{width: 100%;}
+.page-4 .list-middle-top view{width: 100%; margin-bottom: 5px;}
+.page-4 .list-middle-top view text{line-height: 25px; font-size: 14px; color: #909090; margin: 0 10px 0 0; display: inline-block; vertical-align: middle;}
+.page-4 .list-middle-down{width: 100%;}
+.page-4 .list-middle-down text{width: 100%; display: block; line-height: 25px; font-size: 15px; color: #7B7B7B;}
+.page-4 .list-middle-down .zhekou{margin: 10px 0; color: #FF9204; font-size: 16px;}
+.page-4 .referees{margin: 10px 0 0 0;}
+.page-4 .list-down text{line-height: 25px; font-size: 15px; color: #7B7B7B; margin: 0 20px 0 0;}
+.page-4 .guanggao.list .list-top,.page-4 .bangdan.list .list-top{padding-bottom: 10px;}
+
+/* 排序菜单 */
+.menu{width: 100vw; height: -webkit-calc(100vh - 123px); height: calc(100vh - 123px); display: inline-block; position: fixed; top: 123px; left: 0; z-index: 1; animation: menu-slide-in .2s ease-out forwards;}
+.menu-mask{width: 100vw; height: -webkit-calc(100vh - 123px); height: calc(100vh - 123px); background: rgba(0,0,0,.3); position: fixed; top: 123px; left: 0; z-index: 0; animation: cui-fade-in .2s ease-out forwards;}
+.menu{font-size: 0;}
+.menu .menu-left{width: 40%; max-height: 100%; background: #F5F5F5; display: inline-block; vertical-align: top; position: relative; z-index: 1;}
+.menu .menu-left-items{width: 100%;}
+.menu .menu-left-item{width: 100%; height: 44px; line-height: 44px; font-size: 16px; color: #555; text-align: center; position: relative;}
+.menu .menu-left-item::after{content: ''; width: 100%; height: 1px; -webkit-transform: scaleY(.3); transform: scaleY(.3); background: rgba(100,100,100,.3); position: absolute; bottom: 0; left: 0;}
+.menu .menu-left-item.active{background: #FFF;}
+.menu .menu-right{width: 60%; max-height: 100%; background: #FFF; display: inline-block; vertical-align: top; position: relative; z-index: 1;}
+.menu .menu-right-items{width: 100%;}
+.menu .menu-right-item{width: 100%; height: 44px; line-height: 44px; font-size: 16px; color: #555; text-align: center; position: relative;}
+.menu .menu-right-item::after{content: ''; width: 100%; height: 1px; -webkit-transform: scaleY(.3); transform: scaleY(.3); background: rgba(100,100,100,.3); position: absolute; bottom: 0; left: 0;}
+.menu .menu-right-item.active{color: #FF9204;}
+/* 商圈 排序菜单 */
+
+/* 菜系 排序菜单 */
+
+/* 价格 排序菜单 */
+.menu-jiage .menu-right{width: 100%;}
+
+/* 筛选 排序菜单 */
+.menu-shaixuan .menu-lists{width: 100%; max-height: 100%; display: inline-block; background: #FFF; position: relative; z-index: 1;}
+.menu-shaixuan .menu-list{width: 100%; padding: 0 15px; box-sizing: border-box;}
+.menu-shaixuan .menu-list-title{width: 100%; height: 40px; line-height: 40px; font-size: 15px; color: #FF9204;}
+.menu-shaixuan .menu-list-items{width: 100%; font-size: 0;}
+.menu-shaixuan .menu-list-item{width: -webkit-calc((100% - 40px) / 5); width: calc((100% - 40px) / 5); height: 30px; line-height: 30px; overflow: hidden; text-align: center; text-overflow: ellipsis; white-space: nowrap; border-radius: 3px; font-size: 14px; color: #7B7B7B; box-shadow: 0 0 1px rgba(100,100,100,.5) inset; margin: 0 10px 10px 0px; background: #FFF; display: inline-block; vertical-align: top; position: relative;}
+.menu-shaixuan .menu-list-item:nth-child(5n){margin: 0 0 10px 0;}
+.menu-shaixuan .menu-list-item.active{background: #FF9204; color: #FFF; box-shadow: 0 0 1px #FF9204 inset;}
+.menu-shaixuan .menu-down-btns{width: 100%; font-size: 0; padding: 15px 15px 20px 15px; box-sizing: border-box;}
+.menu-shaixuan .reset-btn{width: 40%; height: 38px; line-height: 38px; text-align: center; font-size: 16px; color: #333; border-radius: 5px; border: 1px solid #909090; display: inline-block; vertical-align: middle;}
+.menu-shaixuan .submit-btn{width: -webkit-calc(100% - 40% - 22px); width: calc(100% - 40% - 22px); height: 40px; line-height: 40px; text-align: center; font-size: 16px; color: #FFF; background: #FF9204; border-radius: 5px; display: inline-block; vertical-align: middle; margin: 0 0px 0 20px;}

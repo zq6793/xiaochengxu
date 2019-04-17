@@ -1,0 +1,27 @@
+/* fileName: pages/common/search/search.wxss */
+@import '../../../public/style.wxss';
+
+page{background: #FFF;}
+
+.header .header-r{width: 100%;}
+.header .header-r .search{width: -webkit-calc(100% - 100px); width:calc(100% - 100px); left: 50px;top: 9px;}
+.header .header-r .search-btn{width: 50px; height: 26px; line-height: 26px; text-align: center; font-size: 15px; color: #FF9204; display: inline-block; vertical-align: midle; position: absolute; top: 9px; right: 0px;}
+
+
+.nav .nav-item{padding: 0 20px;}
+.nav .nav-item.active::after{width: -webkit-calc(100% - 30px); width: calc(100% - 30px); left: 15px;}
+
+.page{padding: 83px 0 0 0;}
+
+.page .list{margin: 0; padding: 15px 20px; box-sizing: border-box;}
+.page .list::before{display: none;}
+.page .list::after{width: -webkit-calc(100% - 20px); width: calc(100% - 20px); left: 20px;}
+.page .list:last-child::after{display: inline-block;}
+.list-view1{width: 100%; line-height: 25px; font-size: 16px; color: #333; margin: 0 0 5px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.list-view2{width: 100%; line-height: 20px; font-size: 14px; color: #7B7B7B;}
+.list-view2 text{margin: 0 10px 0 0;}
+
+.list .orange-color{color: #FF9204;}
+.list .orange-bg{background: #FF9204;}
+.list .blue-color{color: #17A2FF;}
+.list .blue-bg{background: #17A2FF;}

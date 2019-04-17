@@ -1,0 +1,181 @@
+<!--pages/common/article_detail/article_detail.wxml-->
+<!-- 帖子详情 -->
+<view class="container">
+    <!-- 广告 轮播图 -->
+    <swiper class="banner" display-multiple-items='1' indicator-dots="{{banner.indicatorDots}}" autoplay="{{banner.autoplay}}" interval="{{banner.interval}}" duration="{{banner.duration}}" style="height:{{banner.height}}px;">
+        <block wx:for="{{banner.img}}" wx:key="{{banner.img}}">
+            <swiper-item class="swiper-item">
+                <view class='swiper-slide'>
+                    <image src="{{item}}" class="slide-image" mode="widthFix" bindload="setBannerHeight"/>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper> 
+    <view class="content-top">
+        <view class="userinfo">
+            <image class="user-avatar" mode="widthFix" src="../../image/avatar.png"></image>
+            <text class="user-name">封號→消失</text>
+            <view class="user-level">
+                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                <image mode="widthFix" src="../../image/maozhao.png"></image>
+            </view>
+            <view class="user-btns">
+                <view class="user-btn-left" catchtap="clickShowModal">5</view>
+                <view class="user-btn-right">加关注</view>
+            </view>
+        </view> 
+        <view class="title-name">专程去吃：晚霞还未散去，莲餐厅在余晖下还是那么的温婉恬静</view>       
+        <view class="describe">发布于 2018.2.12，去过 10 次以上</view>
+        <view class="referees">好友@金三胖、@东尼木木推荐了该餐馆</view>
+    </view>
+    <view class="content-middle">
+        <view class="info-lists">
+            <view class="info-list">
+                <view class="text">水盆羊肉是以羊腩肉为主要食材的一道菜品，是陕西地区汉族著名的传统小吃，源自陕西省渭南市大荔县朝邑镇（原同州府治朝邑县），以陕西省渭南市大荔、蒲城、澄城三县的水盆羊肉最为有名，其中尤以澄城的水盆羊肉最为地道，最为悠久，并于2016年1月入选陕西省第5批非物质文化遗产名录。。水盆羊肉以大荔水盆羊肉最为有名。水盆羊肉是由商周时代的“羊臐”演变而来。秦汉时称为“羊肉臐”，唐宋时又叫“山煮羊”。</view>
+                <view class="image"><image src="../../image/img5.png" mode="widthFix"></image></view>
+            </view>
+            <view class="info-list">
+                <view class="text">水盆羊肉是以羊腩肉为主要食材的一道菜品，是陕西地区汉族著名的传统小吃，源自陕西省渭南市大荔县朝邑镇（原同州府治朝邑县），以陕西省渭南市大荔、蒲城、澄城三县的水盆羊肉最为有名</view>
+                <view class="image"><image src="../../image/img4.png" mode="widthFix"></image></view>
+            </view>
+            <view class="info-down">
+                <view><text>推荐菜： 麻婆豆腐</text></view>
+                <view><text>人均：</text><text class="price">￥35.00</text></view>
+                <view  class="referees">好友@金三胖、@东尼木木推荐了该餐馆</view>
+            </view>
+        </view>
+    </view>
+    <view class="content-down">
+        <!-- 餐厅介绍 -->
+        <view class="ct-infos content-down-list">
+            <view class="ct-infos-top">
+                <view class="ct-infos-name">老米家牛羊肉泡馍</view>
+                <view class="ct-infos-price">￥35.00</view>
+                <view class="ct-infos-jvli"><image src="../../image/position1.png" mode="widthFix"></image><text>255m</text></view>                
+            </view>
+            <view class="ct-infos-middle">
+                <view class="ct-infos-middle-title active">国庆节买一送一</view>
+                <view class="ct-infos-middle-items">
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">商圈：</view>
+                        <view class="ct-infos-middle-item-right">小寨</view>
+                    </view>
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">地址：</view>
+                        <view class="ct-infos-middle-item-right">赛格购物中心第七层</view>
+                    </view>
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">电话：</view>
+                        <view class="ct-infos-middle-item-right">0291234567878</view>
+                    </view>
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">菜系：</view>
+                        <view class="ct-infos-middle-item-right caixi-items">
+                            <text>湘菜</text>
+                            <text>川菜</text>
+                            <text>粤菜</text>
+                            <text>陕菜</text>
+                        </view>
+                    </view>
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">标签：</view>
+                        <view class="ct-infos-middle-item-right"><text>麻辣</text><text>香辣</text></view>
+                    </view>
+                    <view class="ct-infos-middle-item">
+                        <view class="ct-infos-middle-item-left">提示：</view>
+                        <view class="ct-infos-middle-item-right">饭点需排队40分钟以上</view>
+                    </view>
+                </view>
+                <view class="map">
+                    <image src="../../image/map.png" mode="widthFix"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 相关求助问题 -->
+        <view class="qzwt-main content-down-list">
+            <view class="content-down-list-title">相关求助问题</view>
+            <view class="qzwt-infos">
+                <view class="qzwt-text">有谁知道那儿的水煎包最好吃？</view>
+                <view class="referees">@东尼木木</view>
+                <view class="describe">吃了好多家了，都是要外形没外形，要味道没味道，馅还那么少，甚至都不敢吃肉馅的，对肉不放心啊。</view>
+                <view class="down">
+                    <text>100金币</text> <text>28推荐</text>
+                </view>
+            </view>
+        </view>
+        <!-- 好友正在推荐该餐馆 -->
+        <view class="hytj-main content-down-list">
+            <view class="content-down-list-title">好友正在推荐该餐馆</view>
+            <view class="content-down-list-item">
+                <view class="referees">@东尼木木</view>
+                <view class="describe">吃了好多家了，都是要外形没外形，要味道没味道，馅还那么少，甚至都不敢吃肉馅的，对肉不放心啊。</view>
+                <view class="down">
+                    <text>322赞同</text> <text>28互动</text>
+                </view>
+            </view>
+            <view class="content-down-list-item">
+                <view class="referees">@东尼木木</view>
+                <view class="describe">吃了好多家了，都是要外形没外形，要味道没味道，馅还那么少，甚至都不敢吃肉馅的，对肉不放心啊。</view>
+                <view class="down">
+                    <text>322赞同</text> <text>28互动</text>
+                </view>
+            </view>
+        </view>
+        <!-- 作者其他热帖 -->
+        <view class="zzrt-main content-down-list">
+            <view class="content-down-list-title">作者其他热帖</view>
+            <view class="content-down-list-item">
+                <view class="describe">吃了好多家了，都是要外形没外形，要味道没味道，馅还那么少，甚至都不敢吃肉馅的，对肉不放心啊。</view>
+                <view class="down">
+                    <text>322赞同</text> <text>28互动</text>
+                </view>
+            </view>
+            <view class="content-down-list-item">
+                <view class="describe">吃了好多家了，都是要外形没外形，要味道没味道，馅还那么少，甚至都不敢吃肉馅的，对肉不放心啊。</view>
+                <view class="down">
+                    <text>322赞同</text> <text>28互动</text>
+                </view>
+            </view>
+        </view>
+        <!-- 转发 -->
+        <view class="zf-main content-down-list">
+            <view class="content-down-list-title">转发 <view class="more">更多 <image src="../../image/right_black.png" mode="widthFix"></image></view></view>
+            <view class="content-down-list-item">
+                <text>@东尼木木</text> <text>@逆到时光</text> <text>@夺爱水果刀</text>
+                <text>@夺爱水果刀</text> <text>@你算个what？</text> <text>@-扯淡·</text>
+            </view>
+        </view>
+    </view>
+    <!-- 底部 菜单 -->
+    <view class="footer">
+        <view class="footer-items">
+            <view class="footer-item">
+                <image class="footer-item-icon" src="../../image/praise.png" mode="widthFix"></image>
+                <text class="footer-item-name">赞同</text>
+                <text class="footer-item-badge">252</text>
+            </view>
+            <view class="footer-item">
+                <image class="footer-item-icon" src="../../image/oppose.png" mode="widthFix"></image>
+                <text class="footer-item-name">反对</text>
+                <text class="footer-item-badge">252</text>
+            </view>
+            <view class="footer-item">
+                <image class="footer-item-icon" src="../../image/transmit.png" mode="widthFix"></image>
+                <text class="footer-item-name">转发</text>
+                <text class="footer-item-badge">252</text>
+            </view>
+            <view class="footer-item">
+                <image class="footer-item-icon" src="../../image/collection.png" mode="widthFix"></image>
+                <text class="footer-item-name">收藏</text>
+                <text class="footer-item-badge">252</text>
+            </view>
+            <view class="footer-item">
+                <image class="footer-item-icon" src="../../image/interaction.png" mode="widthFix"></image>
+                <text class="footer-item-name">互动</text>
+                <text class="footer-item-badge">252</text>
+            </view>
+        </view>
+    </view>
+</view>
+

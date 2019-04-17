@@ -1,0 +1,14 @@
+/* fileName: pages/my/feedback/feedback.wxss */
+@import '../../../public/style.wxss';
+
+page{background: #FFF;}
+.content{padding: 0;}
+.types{width: 100%; padding: 10px 20px; box-sizing: border-box;}
+.radio-group .radio{margin: 0 20px 0 0; font-size: 15px; color: #646464;}
+/* radio未选中时样式 */
+radio .wx-radio-input{border-radius: 50%;height: 18px;width: 18px;margin-top: -5rpx;}
+
+.textarea{width: 100%; padding: 10px 20px; box-sizing: border-box;}
+textarea{width: 100%; border-radius: 3px; box-shadow: 0 0 1px rgba(100,100,100,.4); padding: 10px; box-sizing: border-box; line-break: 25px; font-size: 14px; color: #646464;}
+
+.submit{width: -webkit-calc(100% - 40px); width: calc(100% - 40px); height: 44px; line-height: 44px; text-align: center; font-size: 16px; color: #FFF; border-radius: 3px; background: #FF9204; margin: 20px}

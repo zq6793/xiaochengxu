@@ -1,0 +1,24 @@
+/* fileName: pages/my/fans/fans.wxss */
+@import '../../../public/style.wxss';
+
+.content{padding: 0;}
+
+.list{width: 100%; font-size: 0; padding: 15px; box-sizing: border-box; margin: 0;}
+.list::before{display: none;}
+.list::after{width: -webkit-calc(100% - 20px); width: calc(100% - 20px); left: 20px;}
+.list-left{width: 60px; text-align: left; display: inline-block; vertical-align: top;}
+.list-left image{width: 45px; height: 45px; border-radius: 50%;}
+.list-right{width: -webkit-calc(100% - 60px); width: calc(100% - 60px); font-size: 0; display: inline-block; vertical-align: top;}
+.list-right-top-l{width: -webkit-calc(100% - 60px); width: calc(100% - 60px); display: inline-block; vertical-align: middle;}
+
+
+.list-right-top-r{width: 60px; height: 24px; text-align: right; display: inline-block; vertical-align: middle;}
+.list-right-top-r .qxgz-btn{min-width: 50px; text-align: center; padding: 2px 3px; font-size: 13px; color: #FF9204; border: 1px solid #FF9204; border-radius: 3px; display: inline-block; vertical-align: middle;}
+
+.user-level image{top: 0;}
+.user-name{max-width: -webkit-calc(100% - 90px); max-width: calc(100% - 90px); text-indent: 0;  text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+
+.list-down{width: 100%; padding: 10px 0 0 0;}
+.list-down view{width: 100%; line-height: 25px; margin: 0 0 5px 0; font-size: 14px; color: #7B7B7B;}
+.list-down view text{font-size: 16px; margin: 0 5px 0 5px; color: #7B7B7B;}
+.list-down view .city{font-size: 14px; color: #7B7B7B;margin: 0 0 0 0;}

@@ -1,0 +1,6 @@
+/* pages/common/article_list/article_list.wxss */
+@import '../../../public/style.wxss';
+
+/* page{padding: 83px 0 0 0;} */
+
+.list-down text{line-height: 25px; font-size: 15px; color: #7B7B7B; margin: 0 20px 0 0;}

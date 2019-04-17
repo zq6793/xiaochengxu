@@ -1,0 +1,107 @@
+<!-- 搜索 -->
+<view class="container">
+    <!-- 顶部导航 -->
+    <view class="header">       
+        <view class="header-r">
+            <view class="search">
+                <image class="search-img" src="../../image/search.png"></image>
+                <input class="search-input"  type="text" focus='true' confirm-type="search" value="{{searchValue}}" placeholder="搜索" bindinput="searchInput"></input>
+                <view class="search-clear" style="display: {{display}};"  catchtap="clearSearchInput"></view>
+            </view>
+            <view class="search-btn" style="display: {{display}};">搜索</view>  
+        </view>          
+    </view>
+    <!-- 菜单导航 -->
+    <view class="nav">
+        <view class="nav-item {{navKey==0 ? 'active' : ''}}" data-key="0" bindtap="navTab">餐厅</view>
+        <view class="nav-item {{navKey==1 ? 'active' : ''}}" data-key="1"  bindtap="navTab">菜谱</view>
+        <view class="nav-item {{navKey==2 ? 'active' : ''}}" data-key="2"  bindtap="navTab">喵喵</view>
+        <view class="nav-item {{navKey==3 ? 'active' : ''}}" data-key="3"  bindtap="navTab">馋猫</view>
+    </view>
+    <!-- 餐厅对应页面 -->
+    <view class="page page-0" hidden="{{navKey != 0}}">
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-view1">雷记水盆羊肉</view>
+                <view class="list-view2"><text>振兴路</text><text>32只馋猫推荐（含5好友）</text></view>
+            </view>
+            <view class="list">
+                <view class="list-view1">刘信牛羊肉泡馍</view>
+                <view class="list-view2"><text>洒金桥</text><text>132只馋猫推荐（含35好友）</text></view>
+            </view>
+            <view class="list">
+                <view class="list-view1">虎子水盆羊肉</view>
+                <view class="list-view2"><text>翠华路</text><text>32只馋猫推荐（含5好友）</text></view>
+            </view>
+        </view>
+    </view>
+    <!-- 菜谱对应页面 -->
+    <view class="page page-1" hidden="{{navKey != 1}}">
+        <view class="lists dataList">
+            <view class="list">
+                <view class="list-view1">浪漫而又奢侈的樱花酥饼，教你留住春天的味道</view>
+                <view class="list-view2">
+                    <text class="orange-color">@米小浪</text> <text>132赞赏</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-view1">超级快手的披萨蛋，拉丝感爆棚</view>
+                <view class="list-view2">
+                    <text>@东邪西毒</text> <text>46赞赏</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-view1">家传糖醋鱼绝招</view>
+                <view class="list-view2">
+                    <text class="blue-color">@我是一只爪子</text> <text>46赞赏</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 喵喵对应页面 -->
+    <view class="page page-2" hidden="{{navKey != 2}}">
+        <view class="lists dataList">
+            <view class="list">
+                <view class="list-view1">《蔡澜旅行食记》之《羊》</view>
+                <view class="list-view2">
+                    <text class="orange-color">@米小浪</text> <text>132喜欢</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-view1">江南的泥土芳香</view>
+                <view class="list-view2">
+                    <text>@东邪西毒</text> <text>46喜欢</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-view1">汪曾祺《故乡的食物》，字里行间有书香味，有...</view>
+                <view class="list-view2">
+                    <text class="blue-color">@我是一只爪子</text> <text>46喜欢</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 馋猫对应页面 -->
+    <view class="page page-3" hidden="{{navKey != 3}}">
+        <view class="lists dataList">
+            <view class="list">
+                <view class="list-view1">馋小猫</view>
+                <view class="list-view2">
+                    <text>热心帮助我3次</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-view1 blue-color">花小狗</view>
+                <view class="list-view2">
+                    <text>我和TA推荐的餐馆中有5家相同</text>
+                </view>
+            </view>
+            <view class="list">
+                <view class='list-view1 orange-color'>兔子耳朵</view>
+                <view class="list-view2">
+                    <text>我和TA的口味有75%相似</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

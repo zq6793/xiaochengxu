@@ -1,0 +1,95 @@
+<view class="container">
+    <!-- <view class='cui-header'>
+        <view class="cui-header-left header-back" bindtap="back"><image mode="widthFix" src="../../image/back-black.png"></image></view>
+        <view class='cui-header-title'>好友</view>
+    </view> -->
+    <view class="content">
+        <view class="lists dataLists">
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">取消关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">取消关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+            <view class="list">
+                <view class="list-left">
+                    <image src="../../image/avatar.png" mode="widthFix"></image>
+                </view>
+                <view class="list-right">
+                    <view class="list-right-top">
+                        <view class="list-right-top-l userinfo">
+                            <text class="user-name">封號→消失</text>
+                            <view class="user-level">
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                                <image mode="widthFix" src="../../image/maozhao.png"></image>
+                            </view>
+                        </view>
+                        <view class="list-right-top-r">
+                            <view class="qxgz-btn">取消关注</view>
+                        </view>
+                    </view>
+                    <view class="list-down">
+                        <view>西安  喵是铁，粮是钢，一秒不吃饿得慌</view>
+                        <view>推荐<text>25</text>家本地餐馆，获得<text>128</text>次赞同</view>
+                        <view>热心帮助我<text>3</text>次</view>
+                        <view>我和TA推荐的餐馆中有<text>4</text>家相同</view>
+                        <view>我和TA的口味有<text>75%</text>相似</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+            <view class="weui-loading"></view>
+            <view class="weui-loadmore__tips">正在加载</view>
+        </view>
+    </view>
+</view>
